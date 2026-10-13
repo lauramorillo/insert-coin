@@ -34,7 +34,7 @@
 - 11: El juego y el reto (Combate 1v1 P2P fuera de la nube vs Battle Hub, espectador y rankings en GKE)
 - 12: Contenedores (Docker) · De la logística marítima al software
 - 13: TECNOLOGÍA · KUBERNETES (Control Plane + Nodos + Pods: Battle Hub, Chat, Rank, Auth y Match para retransmisión a espectadores en Battle Hub)
-- 14: GKE · Google Kubernetes Engine (Autoescalado gestionado)
+- 14: GKE · Google Kubernetes Engine (Autoescalado gestionado en 4 regiones y ~20 microservicios hasta picos de 120K jugadores simultáneos)
 - 15: Cloud Spanner (Ranking mundial único y consistente con TrueTime)
 - 16: Redis / Memorystore (Velocidad <1ms en RAM para estado efímero del Battle Hub)
 - 17: BigQuery (Paso breve sobre cómo Capcom analiza los combates para equilibrar luchadores)
@@ -45,7 +45,7 @@
 - 20: Dedicated Game Server (Planteamiento del problema 5v5, Anti-Cheat y por qué Kubernetes estándar no sirve)
 - 21: MEME: Six Invitational vs Kubernetes (El Pod que era una partida)
 - 22: Agones (Ciclo de vida `READY ➔ ALLOCATED ➔ SHUTDOWN` + Conexión UDP directa vía `hostPort` sin balanceador)
-- 23: La Flota de Servidores (Fleet: pool caliente de servidores `READY` y seguridad de red)
+- 23: La Flota de Servidores (Fleet: pool caliente de servidores `READY` y asignación instantánea a `ALLOCATED`)
 - 24: Lección (Mundo 3)
 
 ### WORLD 4 - Pokémon GO (25–32) · `25:30 – 32:30`
@@ -54,7 +54,7 @@
 - 27: ¿Cómo absorbió la nube el impacto? (GKE con celdas espaciales S2 + Cloud Datastore + SRE)
 - 28: Cloud Pub/Sub (Transportar millones de estados GPS y eventos por segundo)
 - 29: Cloud Dataflow / Apache Beam (Limpieza de señales GPS en ventanas de tiempo y detección de *spoofing*/teletransportes en vivo)
-- 30: Evolución: Datastore (NoSQL documental) vs Cloud Spanner (Transacciones ACID para intercambios entre entrenadores)
+- 30: Evolución: Datastore (NoSQL documental) vs Cloud Spanner (~5.000 nodos con esquemas relacionales, índices consistentes y transacciones ACID globales)
 - 31: Arquitectura de Escala Planetaria (Overview rápido conectando todas las piezas)
 - 32: Lección (Mundo 4)
 

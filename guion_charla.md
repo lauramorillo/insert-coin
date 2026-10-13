@@ -75,13 +75,13 @@
 > En software copiamos la idea con los **contenedores (Docker)**: empaquetamos cada funcionalidad con su código y sus dependencias para olvidarnos del famoso *'en mi máquina funciona'*. Así Capcom tiene contenedores separados para la autenticación, para el chat, para la sala 3D del Battle Hub y para retransmitir las partidas."
 
 ### Slide 13: TECNOLOGÍA · KUBERNETES
-> "Claro, en el lanzamiento de *Street Fighter 6* tuvieron picos de más de 100.000 jugadores simultáneos solo en PC. Cuando tienes miles de contenedores corriendo, necesitas un capitán de puerto que los coordine, y ese es **Kubernetes** (que de hecho en griego significa 'timonel').  
+> "Claro, en el lanzamiento de *Street Fighter 6* tuvieron picos de unos **120.000 jugadores simultáneos entre todas las plataformas**. Cuando tienes miles de contenedores corriendo, necesitas un capitán de puerto que los coordine, y ese es **Kubernetes** (que de hecho en griego significa 'timonel').  
 > Un clúster de Kubernetes tiene arriba el **Control Plane** (el cerebro que decide dónde va cada cosa y vigila que todo esté sano) y abajo los **Nodos** (los servidores físicos o virtuales). Dentro de los nodos corren los **Pods**, que son la unidad mínima que envuelve a nuestros contenedores: ahí veis pods para el *Battle Hub*, el *Chat*, el *Rank*, el *Auth* y esos pods de **Match**.  
 > ¿Qué hacen esos pods de *Match* si hemos dicho que la pelea 1v1 va directo de consola a consola? Pues mientras los dos jugadores pelean en P2P, sus consolas van enviando las acciones que pulsan a ese pod de *Match* en Kubernetes para que **reproduzca el combate en tiempo real a cualquier avatar que se acerque a esa máquina recreativa del Battle Hub a mirar la pelea**, y para validar y registrar el resultado final."
 
 ### Slide 14: GKE · GOOGLE KUBERNETES ENGINE
 > "Ahora bien, montarte un clúster de Kubernetes en casa con cuatro mini-ordenadores para trastear está genial, pero mantener la seguridad, las redes y los parches de un clúster global en producción es un dolor de cabeza, y un estudio de videojuegos quiere dedicarse a hacer juegos, no a enchufar cables.  
-> Por eso usan **GKE (Google Kubernetes Engine)**: Google gestiona el clúster y les da **auto-escalado automático**. Si un martes por la mañana hay poco tráfico, el clúster se encoge para ahorrar costes; si el fin de semana hay un torneo mundial y entran 100.000 personas de golpe, GKE levanta nuevos nodos y pods en segundos sin que nadie tenga que tocar un botón."
+> Por eso usan **GKE (Google Kubernetes Engine)** desplegado en **4 regiones del mundo** (Norteamérica, Sudamérica, Asia y Europa) con unos 20 microservicios: Google gestiona la infraestructura y les da **auto-escalado automático**. Si un martes por la mañana hay poco tráfico, el clúster se encoge para ahorrar costes; si el fin de semana hay un torneo mundial o un pico de 120.000 personas simultáneas, GKE escala los pods y nodos en segundos sin que nadie tenga que tocar un botón."
 
 ### Slide 15: ¿DÓNDE GUARDO MIS DATOS GLOBALES? (Cloud Spanner)
 > "Los contenedores van y vienen, así que no podemos guardar en ellos los datos importantes. ¿Dónde guarda Capcom el perfil del jugador, sus compras y el ranking mundial? En **Cloud Spanner**.  
@@ -122,8 +122,7 @@
 
 ### Slide 23: LA FLOTA DE SERVIDORES (FLEET)
 > "¿Y cómo se gestiona esto a gran escala en producción? Con lo que Agones llama una **Fleet (Flota)**.  
-> Como cargar en memoria un mapa 3D y las físicas del juego puede tardar varios segundos, no podemos crear el contenedor cuando los jugadores le dan a 'Buscar partida'. Lo que hace la flota es mantener siempre un colchón de contenedores pre-calentados en estado `READY` (los verdes del diagrama). En cuanto entran 10 jugadores, ocupan uno al instante pasando a `ALLOCATED`, y automáticamente Agones levanta otro contenedor `READY` por detrás para reponer el hueco.  
-> Y por si os preguntáis: *'Oye, si abres puertos UDP directos a los contenedores sin balanceador, ¿no es peligroso por seguridad?'*, en GKE se protege aislando los rangos de puertos en el firewall del nodo, ocultando los servicios internos y poniendo delante proxies UDP con protección anti-DDoS."
+> Como cargar en memoria un mapa 3D y las físicas del juego puede tardar varios segundos, no podemos crear el contenedor desde cero cuando los jugadores le dan a 'Buscar partida'. Lo que hace la flota es mantener siempre un colchón de contenedores pre-calentados en estado `READY` (los verdes del diagrama). En cuanto entran 10 jugadores, ocupan uno al instante pasando a `ALLOCATED`, y automáticamente Agones levanta otro contenedor `READY` por detrás para reponer el hueco."
 
 ### Slide 24: WORLD 3 · LECCIÓN
 > "Lección del mundo 3: cuando el propio mundo virtual y las físicas de la partida corren dentro de la nube, necesitamos herramientas como **Agones** que adapten la orquestación de contenedores a sesiones con estado que duran lo que dura una partida."
@@ -156,9 +155,9 @@
 > Y de paso cazan a los tramposos (*GPS spoofing*): si has lanzado una Pokéball aquí en España y 5 segundos después aparece otro evento tuyo cazando un Pokémon raro en mitad de Central Park en Nueva York... Dataflow calcula la velocidad en la ventana de tiempo y detecta al instante que, a menos que seas Goku teletransportándote, estás falseando el GPS."
 
 ### Slide 30: EVOLUCIÓN DE LA BASE DE DATOS (De Datastore a Cloud Spanner)
-> "Y fijaos cómo evolucionan las arquitecturas cuando cambia el producto: os decía que al principio usaban **Cloud Datastore** (una carpeta documental por jugador) y les iba de lujo porque capturar un Pokémon era una acción individual.  
-> Pero tiempo después añadieron los **intercambios de Pokémon entre entrenadores** y las batallas cooperativas en gimnasios. En el momento en que yo te doy mi Pikachu y tú me das tu Charmander, si falla la red a mitad no puede ser que los dos nos quedemos con los dos Pokémon o que desaparezcan: necesitamos una **transacción ACID estricta** entre dos jugadores distintos.  
-> Como el modelo documental se les quedaba corto para eso, Niantic migró su base de datos principal en caliente y sin parar el juego hacia **Cloud Spanner**, que ya vimos en *Street Fighter*."
+> "Y fijaos cómo evolucionan las arquitecturas cuando madura el producto: os decía que al principio usaban **Cloud Datastore** (una carpeta documental por jugador) y les vino genial para arrancar rápido y aguantar el pico 50x porque capturar un Pokémon era una acción individual.  
+> Pero a medida que el juego creció y metieron nuevas mecánicas donde los entrenadores interactúan entre sí —como amigos, combates o intercambios de Pokémon—, necesitaban un mayor control sobre la escala, **esquemas relacionales más complejos con índices secundarios consistentes** y **transacciones ACID globales** para cruzar datos de varios jugadores sin incoherencias.  
+> Por eso Niantic migró en caliente y sin parar el juego desde Datastore hacia **Cloud Spanner** (donde operan unos 5.000 nodos capaces de absorber cerca de un millón de transacciones por segundo en eventos como el *Pokémon GO Fest*)."
 
 ### Slide 31: ARQUITECTURA DE ESCALA PLANETARIA (Vista global de Pokémon GO)
 > "Dejo esta diapositiva unos segundos como foto global para que seamos conscientes de cómo se conectan todas las piezas que hemos ido nombrando: desde que el móvil entra por el balanceador global y el CDN para descargar los gráficos, pasando por el gran clúster de **GKE** y la base de datos transaccional en **Spanner**, hasta toda la rama inferior donde **Pub/Sub** recoge cada paso que damos en el mundo real y **Dataflow** lo procesa en tiempo real antes de llevarlo a **BigQuery**."

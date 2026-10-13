@@ -366,22 +366,22 @@ const SLIDES = [
       </p>
     </div>
     <div class="gke-scale-visual">
-      <span class="card-label c-yellow">AUTO-ESCALADO EN STREET FIGHTER 6</span>
+      <span class="card-label c-yellow">ESCALA REAL EN STREET FIGHTER 6</span>
       <div class="scale-step-row">
         <div class="scale-node-box">
-          <div style="font-size:28px">👥 10K</div>
-          <div class="mono c-dim" style="font-size:21px">Tráfico normal</div>
-          <div class="c-green" style="font-size:21px;margin-top:4px">2 Nodos</div>
+          <div style="font-size:28px">🌍 4 Regiones</div>
+          <div class="mono c-dim" style="font-size:21px">US · SA · Asia · EU</div>
+          <div class="c-green" style="font-size:21px;margin-top:4px">~20 Microservicios</div>
         </div>
         <div class="c-cyan pixel" style="font-size:21px">━━▶</div>
         <div class="scale-node-box active-scale">
-          <div style="font-size:28px">🔥 100K</div>
-          <div class="mono c-yellow" style="font-size:21px">Pico de torneo</div>
-          <div class="c-cyan" style="font-size:21px;margin-top:4px">15 Nodos auto</div>
+          <div style="font-size:28px">🔥 120K</div>
+          <div class="mono c-yellow" style="font-size:21px">Pico simultáneo</div>
+          <div class="c-cyan" style="font-size:21px;margin-top:4px">Auto-escalado GKE</div>
         </div>
       </div>
       <div class="mono" style="font-size:21px;color:var(--dim);text-align:center">
-        ⚡ GKE crea nuevos servidores en segundos sin intervención manual.
+        ⚡ GKE escala los pods automáticamente en segundos según la demanda global.
       </div>
     </div>
   </div>
@@ -488,7 +488,7 @@ const SLIDES = [
       </div>
       <div class="c-green" style="font-size:24px">⬇</div>
       <div style="display:flex;gap:10px;width:100%">
-        <div class="bq-layer" style="border-color:var(--magenta);padding:8px 12px;font-size:21px">Balance héroes</div>
+        <div class="bq-layer" style="border-color:var(--magenta);padding:8px 12px;font-size:21px">Balance luchadores</div>
         <div class="bq-layer" style="border-color:var(--green);padding:8px 12px;font-size:21px">Retención</div>
       </div>
     </div>
@@ -799,16 +799,16 @@ const SLIDES = [
     <div class="tech-intro-card" style="border-color:var(--yellow)">
       <span class="card-label c-yellow">2. EVOLUCIÓN: CLOUD SPANNER (RELACIONAL)</span>
       <p class="card-body">
-        🏛️ <strong>La gran biblioteca conectada con consistencia total:</strong><br>
-        Tablas interconectadas y transacciones ACID globales.
+        🏛️ <strong>La gran biblioteca conectada (~5.000 nodos):</strong><br>
+        Esquemas relacionales con índices secundarios consistentes y transacciones ACID globales.
       </p>
       <p class="card-body" style="font-size:21px;color:var(--dim)">
-        ✓ Necesario al añadir <strong>Intercambios entre jugadores, Combates PvP y Amigos</strong> sin duplicar objetos.
+        ✓ Mayor control de escala y soporte para relaciones entre jugadores (<strong>Amigos, Intercambios, PvP</strong>).
       </p>
     </div>
   </div>
   <div class="mini-note mt-8" style="background:rgba(255,215,0,0.08);border-color:var(--yellow);width:100%;text-align:center;">
-    🚀 Niantic migró en vivo miles de millones de registros de Datastore a Cloud Spanner sin interrumpir el juego.
+    🚀 Niantic migró en vivo de Datastore a ~5.000 nodos de Cloud Spanner (soportando hasta ~1M transacciones/seg en GO Fest).
   </div>
 </div>`,
 

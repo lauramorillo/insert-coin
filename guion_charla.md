@@ -1,396 +1,301 @@
-# Guion de la Charla: INSERT COIN, PLAY GOOGLE CLOUD
+# Guion de la Charla: INSERT COIN, PLAY GOOGLE CLOUD (Edición 40 min)
 
-Este documento contiene el discurso completo sugerido para tu presentación de 35 a 45 minutos. Está diseñado para ser **totalmente accesible y divulgativo**, explicando la tecnología mediante **analogías cotidianas y metáforas sencillas**, pero anclado rigurosamente en la **información técnica real y pública** de los casos de estudio oficiales de cada videojuego.
+Este documento contiene el discurso ajustado para **33–35 minutos de exposición** (+ margen de preguntas o derivación al descanso para no superar nunca el límite estricto de **40 minutos**). Está alineado 1 a 1 con las **34 diapositivas** de `slides.js` y contrastado con las fuentes oficiales de Halfbrick, Capcom, Ubisoft/Agones y Niantic.
+
+### ⏱️ Mapa de Tiempos (Checkpoints en directo)
+- **Bloque 0 · Intro y Perfil (Slides 01–03):** `00:00 – 02:30` *(2,5 min)*
+- **Mundo 1 · Fruit Ninja (Slides 04–09):** `02:30 – 09:00` *(6,5 min)*
+- **Mundo 2 · Street Fighter 6 (Slides 10–17):** `09:00 – 18:30` *(9,5 min)*
+- **Mundo 3 · Rainbow Six Mobile (Slides 18–23):** `18:30 – 24:00` *(5,5 min)*
+- **Mundo 4 · Pokémon GO (Slides 24–30):** `24:00 – 32:00` *(8,0 min)*
+- **Cierre y Mapa Global (Slides 31–34):** `32:00 – 34:00` *(2,0 min)*
+- **Margen / Buffer final:** `34:00 – 40:00` *(6,0 min de colchón o 1-2 preguntas rápidas)*
 
 ---
 
-## 01. COVER (Portada)
+## BLOQUE 0: INTRO Y PERFIL (⏱️ Objetivo: 00:00 – 02:30)
 
-**[La diapositiva muestra "INSERT COIN / PLAY GOOGLE CLOUD", 3 corazones de vida, créditos: 45 MIN y el parpadeo de "PRESS SPACE / START"]**
+### 01. COVER (Portada)
 
-"¡Hola a todo el mundo! Gracias por asistir a mi charla _'Insert Coin, Play Google Cloud'_.
+**[La diapositiva muestra "INSERT COIN / PLAY GOOGLE CLOUD", 3 corazones de vida, créditos: 40 MIN y el parpadeo de "PRESS SPACE / START"]**
 
-Me gustaría empezar haciendo una pregunta rápida: que levante la mano quien haya jugado a algún videojuego en la última semana, ya sea en el móvil mientras venía en transporte público, en la consola o en el ordenador. _(Pausa para ver las manos alzadas)_. Prácticamente toda la sala. Y es completamente natural: hoy los videojuegos son la mayor industria de entretenimiento del mundo.
+"¡Hola a todo el mundo! Muchísimas gracias por venir a _'Insert Coin, Play Google Cloud'_.
 
-Cuando jugamos, todo parece instantáneo y mágico: encendemos la pantalla, pulsamos un botón para empezar una partida y, en cuestión de segundos, estamos jugando con personas que están a miles de kilómetros.
+Empecemos con una pregunta rápida: que levante la mano quien haya jugado a algún videojuego en la última semana, ya sea en el móvil, en consola o en PC. _(Pausa breve)_. Casi toda la sala.
 
-Pero detrás de esa pantalla no hay magia. Hay una obra colosal de ingeniería. Hay decenas de piezas invisibles trabajando en segundo plano."
+Lo fascinante es que hoy coges el móvil o la consola, pulsas un botón y en segundos estás jugando con alguien en la otra punta del planeta. Parece magia, pero detrás hay una obra colosal de ingeniería e infraestructura en la nube."
 
-## 02. AGENDA (Stage Select)
+### 02. AGENDA (Select Your Game)
 
 **[Aparece el menú arcade de selección de nivel con las 4 tarjetas de los mundos]**
 
-"Hoy vamos a recorrer cuatro videojuegos que espero que os sean conocidos y descubriremos cómo la nube de Google Cloud hace posible que todo funcione entre bambalinas.
+"Hoy vamos a recorrer cuatro videojuegos muy distintos —Fruit Ninja, Street Fighter 6, Rainbow Six Mobile y Pokémon GO— para descubrir qué piezas de Google Cloud hacen posible que funcionen a escala planetaria.
 
 Así que... echemos nuestra moneda y pulsemos _'Start'_."
 
----
+### 03. SPEAKER PROFILE (Player 1 Profile)
 
-## 03. SPEAKER PROFILE (Player 1 Profile)
+**[Aparece la tarjeta retro con la foto, el nombre Laura Morillo-Velarde, GDE en Google Cloud y +19 años de experiencia — sin QR para no detenerse aquí]**
 
-**[Aparece la tarjeta retro con la foto/avatar, el nombre Laura Morillo-Velarde, credenciales de GDE en Google Cloud, 19 años de experiencia y código QR de contacto]**
+"Antes de entrar al primer mundo, me presento en treinta segundos: soy **Laura Morillo-Velarde**, Desarrolladora de Software e Ingeniera de Plataforma desde hace más de 19 años, y **Google Developer Expert (GDE) en Google Cloud** —lo cual significa que no trabajo para Google, sino que es un reconocimiento de comunidad por divulgar y compartir conocimiento técnico—.
 
-"Pero antes de lanzarnos de lleno a nuestro primer mundo, dejadme que me presente brevemente.
+Siempre me ha apasionado entender qué pasa detrás de lo que el ojo ve en sistemas de alto rendimiento, y los videojuegos llevan la infraestructura al límite. Al final de la charla os dejaré mi QR de contacto y, como tenemos el tiempo muy ajustado a 40 minutos, estaré encantada de responder cualquier duda en el descanso.
 
-Mi nombre es **Laura Morillo-Velarde**. Soy Desarrolladora de Software e Ingeniera de Plataforma, y llevo más de 19 años en el sector tecnológico. Además, soy **Google Developer Expert (GDE) en Google Cloud**, lo cual no significa que trabaje para Google sino que es un reconocimiento que Google otorga a personas con amplio conocimiento de tecnologías de Google (en mi caso sobre Google Cloud) y que colaboramos activamente con comunidades de desarrollo para divulgar y compartir nuestra experiencia.
-
-A lo largo de mi carrera siempre me ha apasionado lo que ocurre 'detrás de lo que el ojo ve' y me parecen especialmente interesantes los entornos que necesitan un alto rendimiento. Y el mundo del videojuego es, sin duda, uno de los campos más exigentes que existe.
-
-En este QR tenéis mi correo y algunas redes sociales por si queréis conectar después de la charla o tenéis dudas o lo que sea.
-
-Y ahora sí... ¿hay ganas de jugar? ¡Vamos al Mundo 1!"
+¡Vamos al Mundo 1!"
 
 ---
 
-## MUNDO 1: FRUIT NINJA
+## MUNDO 1: FRUIT NINJA (⏱️ Objetivo: 02:30 – 09:00)
 
 ### 04. HERO: Fruit Ninja
 
 **[Portada con arte de Fruit Ninja de Halfbrick Studios]**
 
-"Mundo 1. Fruit Ninja de Halfbrick Studios. El juego de cortar fruta al vuelo que batió récords en todos nuestros móviles. Y con él abordamos el primer gran reto: ¿Cómo mantienes vivo un juego móvil, pruebas nuevas mecánicas y cambias parámetros en directo sin obligar a los jugadores a descargarse actualizaciones constantes de las tiendas?"
+"Mundo 1: **Fruit Ninja**, de Halfbrick Studios. ¿Quién ha cortado fruta alguna vez en el móvil? Salió en 2010 y acumula más de mil millones de descargas. Su gran reto es: ¿cómo mantienes vivo y personalizado un juego móvil sin obligar al usuario a descargarse actualizaciones constantes?"
 
-### 05. LiveOps y el Reto de las Tiendas
+### 05. LiveOps: Operar un Juego en Vivo
 
-**[Comparativa visual: Vía lenta de parches en App Store/Google Play vs Vía rápida de LiveOps en la nube]**
+**[Comparativa visual: El problema de las tiendas de apps vs LiveOps en caliente]**
 
-"En los videojuegos para móviles existe un concepto fundamental llamado **LiveOps (operaciones en vivo)**. Un juego móvil nunca se termina: tienes que lanzar eventos de Navidad, ajustar la dificultad si un nivel es imposible o cambiar el precio de una espada.
+"En los juegos móviles existe el concepto de **LiveOps** (operaciones en vivo). Si cada vez que quieres ajustar la dificultad o lanzar un evento tienes que compilar una versión nueva, subirla a la App Store o Google Play, esperar 24 o 48 horas de revisión y rezar para que el usuario tenga actualizaciones automáticas... pierdes toda agilidad. Necesitamos cambiar el comportamiento del juego en caliente."
 
-El problema tradicional es la burocracia de las tiendas de aplicaciones:
+### 06. Firebase
 
-1. Cambias una sola variable en tu código para rebajar la velocidad de una fruta.
-2. Tienes que compilar una versión nueva del juego entero.
-3. Lo envías a revisión a Google Play o a la App Store de Apple, donde pueden tardar días en aprobarlo.
-4. Y lo peor: tienes que obligar al usuario a descargarse un parche de 500 MB solo por haber cambiado un número.
+**[Ecosistema integral de Firebase: Remote Config, Analytics, Crashlytics, Cloud Messaging]**
 
-Muchos jugadores, si ven una actualización obligatoria cuando van en el metro con mala cobertura, simplemente cierran el juego y no vuelven a entrar."
+"La pieza clave en la que se apoya Halfbrick es **Firebase**, la 'navaja suiza' de Google para aplicaciones móviles y web. Nos da listas para usar herramientas de configuración dinámica, telemetría, detección de fallos y notificaciones sin reinventar la rueda."
 
-### 06. Firebase Platform
+### 07. Firebase Remote Config (El Mando a Distancia en la Nube)
 
-**[Ecosistema integral de Firebase para desarrollo y operaciones móviles]**
+**[Diagrama de parámetros en la nube: `ad_frequency_interval`, `rating_prompt_trigger`, `freeze_banana_duration`]**
 
-"Para resolver este problema en el mundo móvil, Google ofrece **Firebase**, una plataforma completa de herramientas diseñadas específicamente para crear, monitorizar y hacer evolucionar aplicaciones y juegos móviles a escala mundial."
+"Dentro de Firebase, su herramienta estrella es **Firebase Remote Config**. El juego incluye el SDK y, al arrancar, consulta en milisegundos qué parámetros debe aplicar hoy.
 
-### 07. Remote Config (El Mando a Distancia en la Nube)
+En vez de subir una versión nueva a la tienda, cambian en la nube variables como:
+- **Frecuencia de anuncios** (`ad_frequency_interval`): si mostrar un anuncio cada tres partidas o solo al pedir vidas.
+- **Cuándo pedir valoración en la tienda** (`rating_prompt_trigger`) o cuánto dura el efecto de la **banana que congela el tiempo**.
 
-**[Diagrama de mandos: Servidor en la nube cambiando variables en tiempo real en los teléfonos de los jugadores]**
+> _[Nota Q&A si preguntan por múltiples versiones de la app en producción: Firebase Remote Config permite definir condiciones nativas por versión de la app (`app.version`) o plataforma, sirviendo el esquema antiguo a la v1 y el nuevo a la v2 sin romper clientes antiguos.]_"
 
-"La herramienta estrella de Firebase para solucionar el problema de las tiendas es **Firebase Remote Config**.
+### 08. El Ciclo Vital de Mejora (Analytics ➔ BigQuery ➔ Remote Config)
 
-Remote Config es como tener un **mando a distancia en la nube conectado a cada teléfono**. En lugar de escribir en el código del juego que una partida dura 60 segundos o que una katana vale 100 monedas, el juego le pregunta a la nube en milisegundos qué valores utilizar.
+**[Diagrama Flywheel: 1. Analytics ➔ BigQuery, 2. Remote Config & A/B Testing, 3. Resultado +16% ingresos y +15% valoraciones 5 estrellas]**
 
-¿Qué nos permite hacer esto?
+"Pero no cambian esos números a ciegas. Lo combinan en un ciclo continuo de tres pasos:
 
-- **Cambios instantáneos**: Cambias un número en la consola de Google Cloud y, al segundo siguiente, todos los jugadores del mundo ven el nuevo valor sin descargar nada.
-- **Experimentos A/B**: A la mitad de los jugadores les pones un evento de frutas doradas y a la otra mitad el juego normal, para ver qué grupo se divierte más.
-- **Personalización por segmentos**: Mostrar un aviso pidiendo una valoración en la tienda solo a los jugadores que han ganado 5 partidas seguidas y están contentos."
-
-### 08. El Ciclo Vital (Analytics ➔ BigQuery ➔ Remote Config)
-
-**[Diagrama circular Flywheel: Teléfono ➔ Firebase Analytics ➔ BigQuery ➔ Remote Config ➔ Teléfono (+16% ingresos)]**
-
-"Pero, ¿cómo decide Halfbrick qué parámetros cambiar en Fruit Ninja? No lo hacen al azar.
-
-Crearon un **círculo virtuoso de datos en tiempo real**:
-
-1. **Medir**: El juego envía los eventos anónimos a **Firebase Analytics** (qué fruta se corta, en qué segundo se pierde, cuántos anuncios se ven).
-2. **Analizar**: Esos datos viajan a **BigQuery**, el almacén masivo de Google Cloud capaz de analizar miles de millones de eventos en tres segundos para descubrir qué patrones hacen que los jugadores se enganchen más o cuándo un anuncio resulta molesto.
-3. **Actuar**: Con esas conclusiones matemáticas, el equipo ajusta **Remote Config**.
-
-¿El resultado real en Fruit Ninja? **Un incremento del 16% en los ingresos** y millones de jugadores más fieles sin haber publicado ni una sola actualización en las tiendas de apps."
+1. **Firebase Analytics + BigQuery**: Recogen los eventos de uso y los vuelcan en **BigQuery**, el Data Warehouse serverless de Google Cloud, capaz de analizar petabytes de datos analíticos en segundos.
+2. **Remote Config + A/B Testing**: Prueban distintas configuraciones con distintos grupos de jugadores.
+3. **Impacto real en negocio**: Descubrieron el momento exacto en que un anuncio no satura al jugador (**+16% en ingresos publicitarios**) y que pedir la valoración justo tras ganar una partida disparaba un **+15% las reseñas de 5 estrellas**."
 
 ### 09. Lección (Mundo 1)
 
-**[Slide de lección con sandía partida 🍉 y pastillas de resumen]**
+**[Slide de lección con sandía 🍉 y pastillas de resumen]**
 
-"Primera gran lección: Tu juego no termina cuando lo publicas en la tienda. Cambiar parámetros en caliente y escuchar los datos con Firebase y BigQuery te permite mejorar la experiencia de juego en tiempo real."
+"Lección del Mundo 1: Un juego no termina cuando lo publicas en la tienda; ahí es cuando empieza a vivir gracias a medir con BigQuery y ajustar al vuelo con Remote Config."
 
 ---
 
-## MUNDO 2: STREET FIGHTER 6
+## MUNDO 2: STREET FIGHTER 6 (⏱️ Objetivo: 09:00 – 18:30)
 
 ### 10. HERO: Street Fighter 6
 
 **[Portada con arte de Street Fighter 6 de Capcom]**
 
-"Fruit Ninja era un juego individual en el móvil... pero ¿qué ocurre cuando queremos meter a millones de personas a la vez en salones recreativos 3D mundiales?
-
-Pasemos al Mundo 2. Street Fighter 6 de Capcom, el rey de los juegos de lucha. ¿Cómo creas un salón recreativo virtual donde millones de personas puedan encontrarse y retarse entre consolas y ordenadores, y cómo mantienes un ranking mundial unificado?"
+"De un juego móvil individual pasamos al Mundo 2: **Street Fighter 6** de Capcom. ¿Cómo conectas simultáneamente a jugadores de PlayStation, Xbox y PC de todo el planeta con salones virtuales en 3D y un ranking mundial único sin latencia?"
 
 ### 11. El Juego y el Reto
 
-**[Detalles del Battle Hub, cross-play y la caja de enfrentamiento Madrid vs Tokio]**
+**[Detalles del Battle Hub, Cross-play completo y separación clara: Combate 1v1 P2P vs Salón/Rankings en la nube]**
 
-"En Street Fighter 6, Capcom creó el _'Battle Hub'_: un salón recreativo virtual en 3D donde caminas con tu avatar, chateas con otros jugadores y te sientas en máquinas recreativas virtuales para iniciar una pelea.
+"En Street Fighter 6, Capcom introdujo el **Battle Hub**: un salón recreativo virtual en 3D donde hasta 100 avatares caminan, interactúan, se sientan en una máquina arcade para pelear o se acercan a mirar la partida de otros.
 
-Cuenta con **crossplay**: alguien jugando en PlayStation en Madrid puede retar a alguien en PC en Tokio o en Xbox en Londres.
-
-El gran desafío aquí es doble: por un lado, gestionar cientos de salones virtuales en paralelo con hasta 100 avatares sincronizados en tiempo real y rankings universales inmutables; y por otro, cuando dos jugadores se sientan en la máquina, arrancar un combate 1v1 que se ejecuta directamente entre sus consolas mediante conexión punto a punto (P2P). ¿Cómo organizamos toda esta infraestructura en la nube?"
+Aquí es fundamental distinguir dos planos técnicos:
+- **El combate 1v1 NO corre en la nube**: En un juego de lucha a 60 FPS cerrados (16 milisegundos por fotograma), pasar los golpes por un servidor añadiría latencia. El combate va **directo consola a consola (P2P con Rollback Netcode)**.
+- **Todo lo demás SÍ corre en Google Cloud**: Los salones 3D del Battle Hub, las salas privadas, el matchmaking cross-play y el ranking mundial."
 
 ### 12. Contenedores (¿Cómo empaquetamos el juego?)
 
-**[Tarjeta conceptual con la analogía del transporte marítimo en los años 50 vs contenedores de software Docker con piezas del juego]**
+**[Analogía del transporte marítimo en los años 50 vs Contenedores Docker para Battle Hub, Custom Rooms, Chat y Matchmaking]**
 
-"Para resolver el reto del Battle Hub, el primer paso de Capcom fue decidir cómo empaquetar todas las piezas que dan vida al juego: el salón 3D, el chat, la tienda, el matchmaking, el ranking...
+"Para construir todos esos servicios online, Capcom decidió empaquetarlos en **Contenedores (Docker)**.
 
-Para entender cómo lo hicieron, nos fijamos en la revolución de los **contenedores marítimos**. Antes de los años 50, cargar un barco de mercancías era caótico porque cada mercancía venía en cajas, barriles o sacos distintos. El contenedor estándar lo cambió todo: la caja exterior tiene medidas idénticas y encaja en cualquier barco, tren o camión del mundo.
+Igual que en los años 50 el contenedor marítimo estandarizó el transporte mundial con cajas de tamaño único, en software empaquetamos cada servicio con sus dependencias en un contenedor: un contenedor para el salón 3D del Battle Hub, otro para las salas privadas (_Custom Rooms_), otro para el chat y otro para el matchmaking. Insisto: **los contenedores gestionan el entorno online y las salas, nunca simulan la pelea 1v1**."
 
-En software hacemos exactamente lo mismo. Capcom empaqueta cada servicio del juego en su propio **Contenedor (Docker)** junto con su código y sus dependencias. ¿La gran ventaja? Elimina por completo el _'en mi máquina funciona'_. Se ejecuta con idéntico comportamiento en el ordenador del desarrollador y en los servidores de la nube."
+### 13. El Timonel y su Clúster (Kubernetes)
 
-### 13. Kubernetes (¿Quién gestiona tantos contenedores?)
+**[Diagrama visual del Clúster: Control Plane arriba y Nodos 1, 2, 3 abajo con Pods de Battle Hub, Custom Room, Chat/Notify, Ranking API, Auth y Matchmaking]**
 
-**[Tarjeta de Kubernetes: El capitán y timonel automatizado que orquesta la flota]**
+"En el lanzamiento de Street Fighter 6 se superaron los 100.000 jugadores simultáneos. Un solo contenedor no basta; necesitas miles. ¿Quién los coordina?
 
-"Pero cuando tienes cientos de salones virtuales abiertos y miles de contenedores de juego ejecutándose a la vez, surge la pregunta: ¿quién coordina toda esa flota?
+**Kubernetes** —que en griego significa _'timonel'_—. En este diagrama vemos cómo funciona: arriba está el **Control Plane** (el cerebro) y abajo los **Nodos** (los servidores), dentro de los cuales se ejecutan los **Pods** (nuestros contenedores del Battle Hub, Custom Rooms, Matchmaking o APIs). Si un salón se llena o falla, Kubernetes levanta nuevos Pods automáticamente."
 
-Ahí entra **Kubernetes** (que en griego clásico significa _'timonel'_ o _'capitán'_).
+### 14. GKE (Google Kubernetes Engine)
 
-Kubernetes es el director de orquesta del puerto: vigila constantemente todos los contenedores del juego, decide en qué servidor desplegar cada sala, arranca nuevos contenedores si hay avalanchas de jugadores y, si un contenedor de chat sufre un fallo, lo reemplaza en cuestión de segundos sin que nadie lo note."
+**[Diagrama de auto-escalado siguiendo el ciclo del sol en 4 regiones: 10K valle horario ➔ 100K hora punta / torneo]**
 
-### 14. ¿Qué es un Clúster?
+"Para no dedicar ingenieros de videojuegos a mantener servidores físicos o parches del sistema operativo, Capcom usa **GKE (Google Kubernetes Engine)** desplegado en **4 regiones del mundo**: Asia, Europa, Norteamérica y Sudamérica.
 
-**[Diagrama visual del Clúster: Control Plane arriba y Nodos con Pods iluminados abajo]**
+Aquí el tráfico de jugadores **sigue el ciclo del sol por husos horarios**: a medida que despierta Asia, luego Europa y luego América, GKE auto-escala los nodos de cada región en cuestión de minutos y los apaga cuando el continente se va a dormir."
 
-"Para llevar a cabo esta tarea Kubernetes se ejecuta en **clústeres**.
+### 15. Cloud Spanner (¿Dónde guardo el Ranking Mundial?)
 
-Un clúster es un equipo de ordenadores trabajando juntos. A cada ordenador lo llamamos **Nodo**.
+**[Diagrama de sincronización global con TrueTime: Europa ◀━ ⚡ TrueTime ━▶ Asia / EE.UU.]**
 
-En lo alto está el **Plano de Control**: vigila todo el tráfico y decide qué nodo tiene espacio libre.
+"Ahora bien: el tráfico de GKE rota por husos horarios, pero **¿qué pasa con el ranking mundial y las compras?**
 
-Y dentro viajan los **Pods**, que son las unidades mínimas donde corren los contenedores: unos pods contienen salas del Battle Hub, otros el chat y otros los perfiles. Si una sala se llena de jugadores, el plano de control despliega más pods en los nodos disponibles."
+A veces se piensa que el ranking se divide en árboles por regiones y se va propagando a lo largo del día según el huso horario. Pero Capcom hizo justo lo contrario usando **Cloud Spanner**: una base de datos relacional con **consistencia global estricta**.
 
-### 15. GKE (Google Kubernetes Engine)
+En lugar de tener bases de datos separadas por región que haya que sincronizar con retraso, las 4 regiones de GKE se conectan a Cloud Spanner a través de la red privada global de Google. Gracias a **TrueTime** (relojes atómicos y GPS sincronizados al milisegundo), si termina un combate en Madrid y otro en Tokio a la vez, el ranking mundial (_League Points_ y _Master Rating_) refleja el orden exacto al instante."
 
-**[Diagrama de auto-escalado: 10K tráfico normal con 2 nodos ➔ 100K pico de torneo con 15 nodos]**
+### 16. Redis / Memorystore (¿Cómo respondo en milisegundos?)
 
-"Construir y mantener toda la infraestructura necesaria uno mismo es caro y complejo. Por eso Capcom utiliza **GKE (Google Kubernetes Engine)**.
+**[Comparativa: Disco/BD persistente ~30-50ms 🐢 vs Redis en memoria RAM <1ms ⚡]**
 
-GKE nos facilita la tarea: tú solo entregas los contenedores con las piezas de tu juego, y Google se encarga de gestionar las máquinas, parches y seguridad.
+"Cloud Spanner es infalible para datos permanentes, pero escribir en disco con consistencia estricta lleva entre 30 y 50 milisegundos.
 
-Durante el lanzamiento de Street Fighter 6, más de 100.000 jugadores entraron a la vez. GKE detectó la avalancha y amplió automáticamente la infraestructura de 2 a 15 máquinas en cuestión de dos minutos, manteniendo los servidores estables sin una sola caída. Y cuando bajó el tráfico, redujo las máquinas para ahorrar costes."
+¿Qué pasa cuando mi avatar camina por el Battle Hub o se sienta en una máquina recreativa libre? Eso es un dato efímero que cambia cada segundo y si me desconecto en cinco minutos deja de importar. Para eso Capcom coloca por delante **Memorystore for Redis**: una base de datos en **memoria RAM** que responde en **menos de 1 milisegundo** para gestionar asientos del salón, sesiones activas y la caché caliente del ranking."
 
-### 16. Cloud Spanner (Datos Globales Consistentes)
+### 17. Lección (Mundo 2)
 
-**[Diagrama interactivo del globo terráqueo con nodos en Madrid y Tokio sincronizados vía TrueTime]**
+**[Slide de lección con trofeo 🏆 y pastillas GKE, Spanner, Redis y BigQuery]**
 
-"Una vez que tenemos los salones corriendo en GKE... surge la siguiente gran pregunta: ¿dónde guardamos los datos sagrados que jamás pueden perderse ni corromperse?
-
-Ahí es donde entra **Cloud Spanner**.
-
-En Street Fighter 6, Spanner guarda los datos permanentes y críticos:
-
-- Tu perfil oficial y la cuenta Capcom ID.
-- Tus puntos de ranking mundial (_League Points_ y _Master Rating_).
-- Tus compras de _Fighter Coins_ y tu progreso en el Pase de Batalla.
-
-Spanner actúa como un **árbitro global con sincronización perfecta**. Apoyado en los **relojes atómicos y satélites GPS** de la tecnología _TrueTime_ de Google, garantiza que cualquier victoria o compra se registre con una marca temporal indiscutible en todo el mundo, evitando que dos servidores se contradigan."
-
-### 17. Redis / Memorystore (Velocidad Sub-Milisegundo)
-
-**[Comparador de velocidad: Disco persistente 50ms 🐢 vs Redis en RAM <1ms ⚡]**
-
-"Pero hay datos que cambian cada milisegundo y no tiene sentido escribirlos en Spanner:
-
-¿Qué se guarda en **Redis (Cloud Memorystore)**?
-
-- **El estado efímero del Battle Hub**: ¿En qué cabina recreativa virtual está sentado cada avatar?
-- **El bloqueo exclusivo de máquinas**: Si te sientas a la izquierda de una cabina, Redis bloquea ese asiento al instante para que nadie se siente encima de ti.
-- **Las colas de espectadores**.
-
-Redis guarda todo directamente en **memoria RAM** y responde en **menos de un milisegundo**."
-
-### 18. BigQuery (Telemetría y Balance de Golpes)
-
-**[Embudo de millones de partidas procesadas en BigQuery hacia Balance y Parches]**
-
-"Y al igual que vimos en Fruit Ninja, Capcom envía toda la telemetría de los combates a **BigQuery**: qué personajes ganan más torneos, qué golpes hacen demasiado daño y qué técnicas están descompensadas. Con ese análisis masivo, los diseñadores pueden sacar parches periódicos de equilibrio completamente justos."
-
-### 19. Lección (Mundo 2)
-
-**[Slide de lección con puño K.O. 🥊 y pastillas de resumen]**
-
-"Segunda lección: Separa el estado de la lógica. Usa GKE para procesar, Redis para la inmediatez en memoria y Spanner para la verdad absoluta de tus jugadores."
+"Lección del Mundo 2: En un gran juego online cada pieza tiene su misión: **GKE** escala los salones siguiendo el sol, **Spanner** mantiene el ranking mundial único sin propagaciones tardías, **Redis** da velocidad sub-milisegundo en memoria, y el mismo **BigQuery** que vimos antes analiza las estadísticas de los combates para equilibrar a los luchadores."
 
 ---
 
-## MUNDO 3: RAINBOW SIX MOBILE
+## MUNDO 3: RAINBOW SIX MOBILE (⏱️ Objetivo: 18:30 – 24:00)
 
-### 20. HERO: Rainbow Six Mobile
+### 18. HERO: Rainbow Six Mobile
 
 **[Portada con arte de Rainbow Six Mobile de Ubisoft]**
 
-"En un juego 1v1 como Street Fighter, una conexión directa P2P entre dos jugadores funciona genial... pero ¿qué pasa cuando tienes una partida competitiva de 10 personas armadas con rifles tácticos donde nadie se fía de nadie?
+"En Street Fighter el combate era 1 contra 1 directo entre dos consolas. Pero, ¿qué ocurre en el Mundo 3 con **Rainbow Six Mobile** de Ubisoft, un shooter táctico de **5 contra 5**?"
 
-Bienvenidos al Mundo 3. Rainbow Six Mobile de Ubisoft. ¿Cómo ejecutas partidas multijugador tácticas sin trampas, con latencia mínima y gestionando servidores dedicados de forma elástica?"
+### 19. Dedicated Game Server (El Servidor es la Autoridad)
 
-### 21. Dedicated Game Server (El Servidor Autoritativo vs P2P)
+**[Explicación de Servidor Dedicado Autoritativo (Anti-Cheat) y el reto de partidas de 10-20 minutos]**
 
-**[Comparativa: P2P con riesgo de trampas y lag host vs Servidor Dedicado Autoritativo neutral]**
+"No puedes conectar 10 teléfonos móviles todos contra todos en P2P: habría muchísimo lag y cualquiera podría trucar su móvil para atravesar paredes o tener puntería infinita.
 
-"En un shooter competitivo 5v5 como Rainbow Six, el modelo P2P no sirve: si el jugador que hace de 'anfitrión' tiene mala conexión, toda la partida tiene lag; y si es un tramposo, puede trucar el tráfico a su favor.
+Aquí la partida **sí se ejecuta y simula dentro de un contenedor en la nube**, llamado **Dedicated Game Server (Servidor Dedicado)**. El servidor es la autoridad: recibe las pulsaciones de los 10 jugadores, calcula las físicas y los disparos en memoria y evita las trampas."
 
-La solución estándar es el **Servidor Dedicado de Juego (Dedicated Game Server)**: una instancia del motor del juego corriendo en la nube que actúa como **juez neutral**. Los 10 móviles solo envían sus pulsaciones, y el servidor calcula la física, las balas y las vidas de forma autoritativa.
+### 20. MEME: Six Invitational vs Kubernetes
 
-El gran problema: cada servidor dedicado consume mucha CPU y memoria. ¿Cómo los levantamos y apagamos dinámicamente en la nube según la demanda?"
+**[Meme del Six Invitational con el comentarista en pánico cuando Kubernetes mata el Pod de la final]**
 
-### 22. MEME: Kubernetes vs Game Dev
+"Pero si metemos la partida dentro de un contenedor de Kubernetes, tenemos un problema gravísimo: Kubernetes se diseñó para páginas web sin estado. Si Kubernetes decide reorganizar el clúster y mata un Pod web, no pasa nada. Pero si mata el Pod donde se está jugando la final del _Six Invitational_... acaba de desconectar a los 10 jugadores en mitad de la ronda."
 
-**[Meme de K8s: Six Invitational ➔ Kubernetes matando el Pod en plena final ➔ Cara de pánico]**
+### 21. Agones (Orquestador de Game Servers en Kubernetes)
 
-"El primer impulso de cualquier ingeniero de sistemas sería: _'¡Pues usemos Kubernetes!'_.
+**[Dos pilares de Agones (Ciclo de vida + Conexión UDP directa `hostPort`) y estados READY ➔ ALLOCATED ➔ SHUTDOWN]**
 
-Pero aquí hay un choque cultural gigantesco entre cómo piensa Kubernetes y cómo funciona un videojuego:
+"Para resolverlo, Google Cloud y Ubisoft crearon **Agones**, un proyecto open source que se instala encima de cualquier Kubernetes y hace dos cosas fundamentales:
 
-- Kubernetes fue diseñado para la web: si una máquina se satura, Kubernetes 'mata' un contenedor web y lo arranca en otro servidor. En una web de compras no pasa nada: el usuario recarga la página y sigue comprando.
-- Pero en un videojuego, **un contenedor ES una partida en curso**. Si Kubernetes decide matar un Pod a mitad de una final de torneo porque necesita reordenar el clúster... acaba de arruinar la partida a 10 personas."
+1. **Adapta el ciclo de vida del contenedor**: Le enseña a Kubernetes los estados `READY` (servidor pre-calentado esperando jugadores), `ALLOCATED` (**partida en curso: prohibido tocar o matar este Pod**) y `SHUTDOWN` (la partida ha terminado, ya puedes destruirlo).
+2. **Elimina la latencia del balanceador de carga**: En una web normal el tráfico pasa por un balanceador HTTP hacia cualquier Pod libre. En un shooter a 60 Hz necesitas enviar paquetes **UDP** al **Pod exacto** donde está tu partida sin saltos intermedios. Agones abre un puerto dinámico (`hostPort`) en la máquina y devuelve a los 10 jugadores la **IP y Puerto directos** de su contenedor."
 
-### 23. Agones (Kubernetes para Servidores de Videojuegos)
+### 22. La Flota de Servidores (Fleet) y Seguridad
 
-**[Arquitectura de Agones extendiendo Kubernetes con el Custom Resource 'GameServer']**
+**[Matriz visual de la flota `GS-01..06` en estados READY y ALLOCATED + Nota inferior de seguridad]**
 
-"Para solucionar este desencuentro, Google Cloud y Ubisoft cofundaron **Agones**, un proyecto de código abierto que se instala sobre Kubernetes.
+"Así mantiene Agones la flota en vivo: contenedores verdes en `READY` para entrar a jugar sin esperas, y contenedores en `ALLOCATED` blindados con conexión UDP directa.
 
-Agones le 'enseña' a Kubernetes las reglas de los videojuegos mediante un nuevo concepto: el **GameServer**.
+Y ojo a una pregunta muy habitual de arquitectura: **¿Exponer la IP y el puerto directo sin balanceador no es un riesgo de seguridad?** Sí, expone el nodo a posibles ataques DDoS si alguien descubre la IP. Por eso Agones usa `hostPort` (aislando la red de cada contenedor en vez de abrir toda la máquina con `hostNetwork`) y se complementa en el ecosistema de Google Cloud con proxies UDP ligeros como **Quilkin** y protección DDoS perimetral."
 
-Le dice a Kubernetes: _'Jamás toques ni apagues un contenedor que esté en estado ALLOCATED (partida en curso). Espera a que termine la ronda y sea el propio juego el que te avise de que se puede cerrar'._"
+### 23. Lección (Mundo 3)
 
-### 24. La Flota de Servidores (Fleet Matrix)
+**[Slide de lección con diana 🎯 y pastillas de resumen]**
 
-**[Ciclo de vida de la flota: Servidores READY en espera ➔ ALLOCATED en combate ➔ SHUTDOWN ordenado]**
-
-"Agones gestiona lo que llamamos una **Flota de Servidores (Fleet)**:
-
-1. **Estado READY**: Mantiene un colchón de servidores dedicados vacíos, ya arrancados y listos en memoria para que cuando 10 jugadores quieran jugar, la asignación sea instantánea (cero segundos de espera).
-2. **Estado ALLOCATED**: Cuando empieza la partida, el servidor pasa a estado reservado y queda completamente blindado contra reinicios automáticos.
-3. **Estado SHUTDOWN**: Cuando la partida termina tras 15 minutos, el servidor guarda los resultados y se destruye limpiamente para liberar memoria para nuevas partidas."
-
-### 25. Lección (Mundo 3)
-
-**[Slide de lección con escudo táctico 🛡️ y pastillas de resumen]**
-
-"Tercera lección: No fuerces tu problema a la herramienta; adapta la herramienta a tu problema. Agones enseña a la nube a respetar la naturaleza de las partidas en directo."
+"Lección del Mundo 3: Kubernetes es el estándar universal, pero con **Agones** lo adaptamos para proteger el ciclo de vida de las partidas en memoria y darles conexión UDP directa sin latencia."
 
 ---
 
-## MUNDO 4: POKÉMON GO
+## MUNDO 4: POKÉMON GO (⏱️ Objetivo: 24:00 – 32:00)
 
-### 26. HERO: Pokémon GO
+### 24. HERO: Pokémon GO
 
 **[Portada con arte de Pokémon GO de Niantic]**
 
-"Ya sabemos cómo orquestar servidores dedicados, partidas y bases de datos para cientos de miles de personas... pero ¿qué ocurre si de la noche a la mañana tu juego explota y desata el mayor fenómeno viral de la historia de los videojuegos móviles?
+"Y llegamos a nuestro cuarto y último mundo: **Pokémon GO** de Niantic. Un juego que convirtió el planeta entero en un tablero geolocalizado. Su desafío: ¿qué pasa cuando se conecta **50 veces más gente** de la que habías previsto?"
 
-Llegamos a nuestro cuarto y último mundo: Pokémon GO de Niantic. ¿Cómo diseñas una infraestructura capaz de soportar 50 veces más tráfico del peor escenario que jamás habías imaginado?"
+### 25. El Pico de Tráfico Viral (50X)
 
-### 27. El Pico de Tráfico Viral
+**[Gráfica oficial de Google Cloud / Niantic: Línea naranja 1X, Línea roja 5X (peor escenario), Línea verde vertical 50X]**
 
-**[Gráfica real de Niantic: Tráfico esperado 1X ➔ Peor escenario estimado 5X ➔ Tráfico real alcanzado 50X 🚀]**
+"Mirad esta gráfica real publicada por Google Cloud tras el lanzamiento en 2016:
+- La **línea naranja (1X)** era el tráfico esperado.
+- La **línea roja (5X)** era el peor escenario posible para el que se habían preparado.
+- La **línea verde vertical (50X)** fue la realidad: 50 veces la estimación inicial y 10 veces por encima del peor escenario. El mayor reto de infraestructura de la historia móvil."
 
-"Verano de 2016. Niantic lanza Pokémon GO.
+### 26. ¿Cómo Absorbió la Nube el Impacto? (GKE + Celdas S2 + Datastore)
 
-Los ingenieros de Niantic y Google Cloud se habían sentado meses antes a calcular la capacidad:
-- Definieron un **tráfico esperado normal (1X)**.
-- Por seguridad, se prepararon para un **peor escenario catastrófico (5X)**.
+**[Dos columnas: Cómputo y Mapa Vivo en GKE con celdas espaciales S2 + Almacenamiento en Cloud Datastore + SRE]**
 
-La realidad: en cuestión de días, millones de personas salieron a la calle en todo el planeta buscando Pokémon. El tráfico real superó **50 veces las estimaciones iniciales** y 10 veces el peor escenario temido.
+"¿Cómo sobrevivió y cómo funciona el flujo principal del mapa en vivo?
 
-Cualquier centro de datos tradicional habría colapsado en minutos."
+1. **GKE y Geolocalización en Celdas S2**: Levantaron el mayor clúster de GKE del mundo junto al equipo de SRE de Google. Dentro de GKE corre el motor geoespacial de Niantic, que divide toda la superficie de la Tierra en **celdas espaciales S2** cacheadas en memoria. Cuando te mueves por la calle, GKE consulta tu celda S2 para decirte al instante qué Pokémon, Poképaradas y Gimnasios tienes alrededor.
+2. **Cloud Datastore**: En el lanzamiento usaron esta base de datos documental NoSQL, donde cada entrenador tenía su propio documento independiente (su Pokédex y mochila), lo que permitió escalar horizontalmente sin bloqueos."
 
-### 28. ¿Cómo Absorbió la Nube el Impacto? (GKE + Cloud Datastore)
+### 27. Cloud Pub/Sub (¿Cómo transporto millones de eventos?)
 
-**[Diagrama de colaboración: El clúster de GKE más grande de la historia + Datastore NoSQL + Equipo Google SRE]**
+**[Diagrama de tubería: 50M Entrenadores (GPS + Acciones) ➔ Cloud Pub/Sub Topic ➔ Fan-out a Spawns, Analytics y Anti-Cheat GPS]**
 
-"¿Cómo sobrevivió Pokémon GO?
+"Pero además de pintarte el mapa, cada vez que millones de personas caminan, giran una Poképarada o lanzan una Pokéball, generan un torrente de **estados de posición GPS y eventos**.
 
-1. **GKE al límite**: Se convirtió en el clúster de Kubernetes en producción más grande jamás desplegado en Google Cloud en ese momento, escalando miles de nodos automáticamente.
-2. **Cloud Datastore**: Una base de datos NoSQL documental diseñada para absorber escrituras y lecturas masivas sin degradarse.
-3. **El equipo de Google SRE (Site Reliability Engineering)**: Ingenieros de Google y Niantic colaborando hombro con hombro en tiempo real para inyectar recursos y balancear el tráfico conforme el juego se encendía en cada huso horario del planeta."
+Para no bloquear los servidores del juego, los móviles y servicios lanzan todos esos eventos a una gran cola de mensajería asíncrona llamada **Cloud Pub/Sub**, que absorbe millones de mensajes por segundo y los reparte en paralelo a los sistemas que los necesitan."
 
-### 29. Cloud Pub/Sub (Transportar Millones de Eventos)
+### 28. Cloud Dataflow / Apache Beam (¿Cómo limpio y analizo el stream GPS?)
 
-**[Diagrama de tuberías: Capturas y Poképaradas ➔ Tubería Pub/Sub desacoplada]**
+**[Diagrama de Streaming: Señales GPS y Eventos (Pub/Sub) ➔ Ventanas temporales en Apache Beam (Dataflow) ➔ Anti-Cheat / BigQuery]**
 
-"Con decenas de millones de personas jugando a la vez, cada captura de Pokémon, cada giro de Poképarada y cada combate genera eventos.
+"Y aquí entra una pieza fundamental para la geolocalización: **Cloud Dataflow**, basado en **Apache Beam**.
 
-Para que los servidores no se atasquen intentando procesar todo a la vez, utilizan **Cloud Pub/Sub**: una cinta transportadora gigante capaz de ingerir millones de mensajes por segundo y entregarlos de forma ordenada y garantizada sin perder ni un solo dato."
+Mientras GKE sirve el mapa en vivo, **Dataflow procesa en streaming continuo todos los estados de posición GPS** que llegan desde Pub/Sub en pequeñas ventanas de tiempo para **limpiar la señal geolocalizada y detectar trampas**:
+- Si un jugador captura un Pokémon en Madrid y **5 segundos después** su GPS dice que ha lanzado una Pokéball en Nueva York o Tokio, el pipeline de Apache Beam detecta en tiempo real que ese desplazamiento físico es imposible (*GPS spoofing* / bots) y filtra la trampa sin esperar al final del día.
+- Además, procesa entre 5 y 10 Terabytes diarios de registros de actividad desde **Cloud Bigtable** hacia **BigQuery** para verificar cómo se distribuyen los Pokémon por el mapa del mundo."
 
-### 30. Dataflow (Procesamiento en Streaming en Tiempo Real)
+### 29. Evolución: Datastore (NoSQL) vs Spanner (Relacional)
 
-**[Diagrama de flujo: Cloud Pub/Sub ➔ Cloud Dataflow en paralelo ➔ Detección de trampas y analítica]**
+**[Comparativa: 1. Lanzamiento en Cloud Datastore (NoSQL documental) vs 2. Evolución a Cloud Spanner (Transacciones ACID entre jugadores)]**
 
-"Esos millones de eventos que viajan por Pub/Sub entran directamente a **Cloud Dataflow**.
+"Por último, una gran lección de evolución arquitectónica: en el lanzamiento, **Cloud Datastore** (un documento por entrenador) fue ideal para aguantar el pico 50X porque cada jugador jugaba por su cuenta.
 
-Dataflow es un procesador de datos en tiempo real: analiza la información mientras está en movimiento, calculando estadísticas del mapa, detectando patrones de trampas o teletransporte de GPS y alimentando los sistemas del juego sin retraso."
+Pero cuando Niantic quiso añadir **intercambios de Pokémon entre dos entrenadores** y combates PvP, necesitaba transacciones cruzadas: quitarme el Pikachu a mí y dártelo a ti de forma atómica sin que se duplique ni se pierda. Por eso migraron en caliente, sin apagar el juego, miles de millones de registros de Datastore a **Cloud Spanner**."
 
-### 31. Datastore (NoSQL) vs Spanner (Relacional)
+### 30. Lección (Mundo 4)
 
-**[Comparativa de bases de datos: Datastore para el lanzamiento NoSQL flexible ➔ Cloud Spanner para escala relacional global]**
+**[Slide de lección con rayo ⚡ y pastillas GKE + Celdas S2, Datastore ➔ Spanner, Pub/Sub + Beam]**
 
-"En el lanzamiento, Niantic usó Cloud Datastore por su elasticidad extrema.
-
-Sin embargo, conforme el juego maduró y se añadieron combates entre entrenadores, amigos e intercambio de Pokémon, se hizo imprescindible tener relaciones estrictas e inventarios compartidos.
-
-Niantic llevó a cabo una de las hazañas de ingeniería más impresionantes de la industria: **migrar la base de datos de cientos de millones de jugadores de Datastore a Cloud Spanner en vivo**, combinando la flexibilidad de NoSQL con la consistencia atómica relacional sin apagar el juego."
-
-### 32. Arquitectura Pokémon GO
-
-**[Diagrama completo: Móvil ➔ Cloud CDN ➔ GKE (Lógica) ➔ Datastore / Spanner / Bigtable + Pub/Sub + Dataflow]**
-
-"Esta es la foto completa de la infraestructura de Pokémon GO: una arquitectura desacoplada, donde cada pieza —desde el CDN que entrega los mapas hasta Spanner y Bigtable— está diseñada para escalar de forma independiente hasta el infinito."
-
-### 33. Lección (Mundo 4)
-
-**[Slide de lección con Pokéball 🔴 y pastillas de resumen]**
-
-"Cuarta lección: El éxito masivo no avisa. Diseñar arquitecturas desacopladas y apoyarte en servicios gestionados elásticos es la única garantía para que tu aplicación sobreviva a su propio éxito."
+"Lección del Mundo 4: Necesitas una infraestructura elástica (**GKE con celdas S2** y **Pub/Sub + Apache Beam** limpiando el GPS en tiempo real) para absorber lo inesperado, y una arquitectura viva (**Datastore a Spanner**) capaz de evolucionar con tu juego."
 
 ---
 
-## RESUMEN Y CIERRE
+## RESUMEN Y CIERRE (⏱️ Objetivo: 32:00 – 34:00)
 
-### 34. El Mapa de Tecnologías en la Nube
+### 31. El Mapa de Tecnologías en la Nube
 
-**[Matriz 8-bit con las 10 tecnologías organizadas en cuadrícula 5x2 y sus preguntas clave]**
+**[Matriz 8-bit con las 10 tecnologías: Remote Config, Firebase Analytics, BigQuery, GKE, Cloud Spanner, Redis/Memorystore, Agones, Cloud Datastore, Cloud Pub/Sub y Dataflow (Beam)]**
 
-"Hemos llegado al final de nuestros cuatro mundos y hemos completado nuestro mapa con diez grandes tecnologías que trabajan juntas como un equipo de superhéroes:
+"_(No leer las 10 cajas una por una; dejar 15 segundos en pantalla por si quieren hacer foto)_.
 
-- **Firebase Remote Config**: El mando a distancia para cambiar variables y mecánicas en vivo sin pasar por las tiendas de apps.
-- **Firebase Analytics**: La telemetría móvil para medir el comportamiento de los jugadores en tiempo real.
-- **BigQuery**: El motor analítico para procesar petabytes de partidas y guiar el balanceo del juego.
-- **GKE**: La plataforma de Kubernetes gestionada por Google para desplegar y autoescalar los componentes del juego.
-- **Cloud Spanner**: La base de datos relacional planetaria con sincronización TrueTime para inventarios y rankings sagrados.
-- **Redis / Memorystore**: La memoria RAM ultrarrápida para estados efímeros en menos de 1 milisegundo.
-- **Agones**: La extensión de Kubernetes que enseña a la nube a respetar el ciclo de vida de los servidores de videojuegos dedicados.
-- **Cloud Datastore**: La base de datos NoSQL documental de elasticidad masiva.
-- **Cloud Pub/Sub**: La cinta transportadora de mensajería para millones de eventos por segundo.
-- **Cloud Dataflow**: El procesador de datos en streaming en tiempo real."
+Aquí tenéis el mapa resumen de las diez piezas que hemos recorrido hoy. Si queréis hacerle una foto rápida, esta es la chuleta: cada herramienta de Google Cloud responde a una pregunta arquitectónica concreta según lo que necesite tu juego."
 
-### 35. Un Videojuego es un Sistema Distribuido
+### 32. Un Videojuego es un Sistema Distribuido
 
-**[Diagrama orbital elíptico con el núcleo del videojuego y los 10 satélites tecnológicos en perfecta armonía]**
+**[Diagrama orbital con el videojuego en el centro y las 10 tecnologías orbitando]**
 
-"La gran idea con la que quiero que os marchéis hoy es esta:
+"La conclusión final es que un gran videojuego moderno **es un sistema distribuido de altísimo rendimiento**. Y la verdadera magia de la nube consiste en hacer que toda esta complejidad sea completamente invisible para quien juega."
 
-Un videojuego moderno no es solo un dibujo en una pantalla o un programa aislado. **Es un sistema distribuido completo:** diez piezas hiperespecializadas cooperando en milisegundos.
+### 33. Referencias Oficiales
 
-Ese es el verdadero poder y la magia de la nube: **hacer que lo extremadamente complejo parezca totalmente invisible**."
+**[Panel con los enlaces a los casos de estudio oficiales de Halfbrick, Capcom (GCP Blog + Next Tokyo '23), Ubisoft/Agones y Niantic (GCP Blog + Beam Summit)]**
 
-### 36. Referencias Oficiales
+"En la presentación os dejo todos los enlaces oficiales a los blogs de arquitectura y charlas técnicas de los ingenieros de Halfbrick, Capcom, Ubisoft y Niantic donde cuentan de primera mano cada detalle."
 
-**[Panel interactivo con los enlaces oficiales a casos de estudio y documentación técnica de Google Cloud, Firebase y Agones]**
+### 34. Cierre (¡Gracias! · ¿Hablamos?)
 
-"Aquí tenéis una recopilación de enlaces directos a publicaciones y charlas técnicas oficiales referentes a los cuatro juegos que hemos analizado hoy por si queréis profundizar en su arquitectura."
+**[Slide final retro con 3 corazones, INSERT COIN y el código QR de contacto]**
 
----
+"Ahí tenéis mi código QR con mi correo y redes sociales. Como vamos ajustados a los 40 minutos de la sesión, si da tiempo a una pregunta rápida genial y, si no, **estaré ahora mismo fuera en el descanso** encantada de charlar y responder todas las preguntas que queráis.
 
-### 37. Cierre (¡Gracias! · ¿Preguntas?)
-
-**[Slide final retro con 3 corazones: INSERT COIN + Código QR para conectar + '¡GRACIAS! · PREGUNTAS']**
-
-"_(Dejar esta diapositiva visible durante el turno de preguntas)_.
-
-La próxima vez que cojáis vuestro móvil, encendáis vuestra consola o echéis una partida con vuestros amigos al otro lado del mundo... acordaos por un segundo de todas las piezas invisibles que están girando en el cielo para que podáis divertiros.
-
-Si queréis seguir en contacto o comentar cualquier duda técnica, tenéis ahí mi código QR para conectar.
-
-Muchísimas gracias a todas y a todos por jugar esta partida conmigo. Quedo a vuestra disposición para cualquier pregunta. ¡Ha sido un auténtico placer!"
+¡Muchísimas gracias y jugad mucho!"

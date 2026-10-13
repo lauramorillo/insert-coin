@@ -25,9 +25,10 @@
 > "Y eso es justo lo que vamos a ver hoy: qué ocurre detrás de cuatro juegos muy conocidos —*Fruit Ninja*, *Street Fighter 6*, *Rainbow Six Mobile* y *Pokémon GO*— aumentando poquito a poco la complejidad para ver qué retos tenía cada uno y con qué piezas de Google Cloud los resolvieron."
 
 ### Slide 03: PLAYER 1 · Laura Morillo-Velarde
-> "Antes de meternos en harina, me presento muy rápido: soy Laura Morillo-Velarde, trabajo como Technical Lead en Seedtag y soy Google Developer Expert (GDE) en Google Cloud —que, por si alguien no conoce el programa, no trabajamos para Google, sino que somos gente de comunidad a la que nos gusta compartir lo que aprendemos—. Y también soy embajadora de Women Techmakers.  
-> Llevo más de 19 años entre desarrollo e ingeniería de plataforma y siempre me ha gustado destripar qué pasa detrás de lo que el ojo ve.  
-> Ahí tenéis el **código QR** con mi X, mi Bluesky y mi LinkedIn: lo dejo especialmente por si durante la charla queréis hacer alguna foto y subirla mencionándome, o por si me queréis escribir después. Como hoy vamos con el tiempo muy ajustado a 40 minutos, si al final no nos da tiempo a preguntas estaré encantada de responderos todas las dudas en el descanso."
+> "Antes de adentrarnos en nuestro primer mundo, permitidme que me presente un poquito: yo soy Laura Morillo-Velarde.  
+> En este **código QR** tenéis mi correo electrónico, mi LinkedIn, mi Bluesky y mi X, tanto por si durante la charla queréis hacer alguna foto y subirla mencionándome, como para que podáis contactarme después por la red social que os resulte más cómoda.  
+> Yo soy **Google Developer Expert (GDE) en Google Cloud** —que, por si alguien no lo conoce, los GDE no trabajamos para Google, sino que es un reconocimiento que nos da Google por nuestros conocimientos técnicos y por nuestras contribuciones a la comunidad—.  
+> Llevo más de 19 años trabajando tanto como desarrolladora de software como ingeniera de plataforma, y aunque no he trabajado directamente en la industria del videojuego, siempre me ha encantado documentarme y entender qué pasa detrás de lo que el ojo ve cuando jugamos. Como hoy tenemos el tiempo muy ajustado a 40 minutos, si al final no nos da tiempo a preguntas estaré encantada de hablar con vosotros en el descanso."
 
 ---
 

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "laura-presentations"
+  },
+  "targets": {
+    "laura-presentations": {
+      "hosting": {
+        "insert-coin-app": [
+          "insert-coin"
+        ]
+      }
+    }
+  }
+}

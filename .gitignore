@@ -1,0 +1,28 @@
+# macOS
+.DS_Store
+
+# Entornos y dependencias
+node_modules/
+tools/node_modules/
+.venv/
+tools/.venv/
+__pycache__/
+*.pyc
+
+# Firebase cache local
+.firebase/
+firebase-debug.log*
+
+# Archivos generados pesados (exportables con scripts en tools/)
+*.pdf
+*.pptx
+*.mp3
+audio/
+
+# Variables de entorno y credenciales sensibles
+.env
+.env.*
+*.pem
+*.key
+service-account*.json
+credentials*.json

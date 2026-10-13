@@ -1,0 +1,14 @@
+{
+  "name": "insert-coin-presentation",
+  "version": "1.0.0",
+  "scripts": {
+    "export-pdf": "node export_pdf.js",
+    "export-pptx": "node export_pptx.js",
+    "generate-audio": ".venv/bin/python generate_audio.py"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "pptxgenjs": "^4.0.1",
+    "puppeteer-core": "^25.8.0"
+  }
+}

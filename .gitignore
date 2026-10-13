@@ -13,10 +13,7 @@ __pycache__/
 .firebase/
 firebase-debug.log*
 
-# Archivos generados pesados (exportables con scripts en tools/)
-*.pdf
-*.pptx
-*.mp3
+# Carpeta temporal de audio (el MP3 final está en la raíz)
 audio/
 
 # Variables de entorno y credenciales sensibles

@@ -26,9 +26,14 @@ def parse_guion(file_path):
     for line in lines:
         stripped = line.strip()
         
-        # Ignorar encabezado introductorio del documento
+        # Ignorar encabezado introductorio del documento hasta la primera slide
         if in_header:
-            if stripped.startswith("## 01. COVER") or stripped.startswith("## 1. COVER"):
+            if (
+                stripped.startswith("## 01. COVER")
+                or stripped.startswith("## 1. COVER")
+                or stripped.startswith("### Slide 01")
+                or stripped.startswith("### Slide 1")
+            ):
                 in_header = False
             else:
                 continue
@@ -55,8 +60,8 @@ def parse_guion(file_path):
         if stripped == "---" or not stripped:
             continue
             
-        # Limpiar texto
-        cleaned = stripped
+        # Limpiar texto (incluyendo prefijo '>' de blockquotes)
+        cleaned = re.sub(r'^>\s*', '', stripped)
         # Eliminar comillas iniciales/finales de discurso
         cleaned = re.sub(r'^["“”]+|["“”]+$', '', cleaned)
         # Eliminar indicaciones entre paréntesis en cursiva _(...)_ o *(...)*
@@ -64,8 +69,8 @@ def parse_guion(file_path):
         # Eliminar viñetas de markdown (- **GKE**: -> GKE:)
         cleaned = re.sub(r'^-\s+\*\*([^*]+)\*\*:\s*', r'\1: ', cleaned)
         cleaned = re.sub(r'^\d+\.\s+\*\*([^*]+)\*\*:\s*', r'\1: ', cleaned)
-        # Eliminar marcas de negrita/cursiva restantes
-        cleaned = cleaned.replace('**', '').replace('*', '').replace('_', '')
+        # Eliminar marcas de negrita/cursiva/código restantes
+        cleaned = cleaned.replace('**', '').replace('*', '').replace('_', '').replace('`', '')
         
         cleaned = cleaned.strip()
         if cleaned:

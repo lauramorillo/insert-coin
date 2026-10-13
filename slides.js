@@ -82,12 +82,14 @@ const SLIDES = [
         </div>
         <div class="profile-badge-item">
           <span class="profile-badge-icon">🛠️</span>
-          <span><strong>Desarrolladora e Ingeniera de Plataforma</strong> (+19 años de experiencia)</span>
+          <span><strong>Desarrolladora e Ingeniera de Plataforma</strong> (19 años de experiencia)</span>
         </div>
-        <div class="profile-badge-item">
-          <span class="profile-badge-icon">🕹️</span>
-          <span>Apasionada por la arquitectura de sistemas distribuidos de alto rendimiento</span>
+      </div>
+      <div class="profile-qr-box">
+        <div class="qr-frame">
+          <img src="images/qr_linkedin.jpg" alt="QR Contacto" />
         </div>
+        <span class="pixel c-cyan qr-label">📱 ESCANEA PARA CONECTAR</span>
       </div>
     </div>
   </div>
@@ -274,9 +276,9 @@ const SLIDES = [
           <span>🇯🇵 Jugador (Tokio)</span>
         </div>
         <p style="font-size:21px; color:var(--dim); line-height: 1.6;">
-          • <strong class="c-white">Combate 1v1 (Fuera de la nube):</strong> P2P directo entre consolas (Rollback Netcode a 60 FPS).<br>
-          • <strong class="c-white">Battle Hub y Salas (En GKE):</strong> Contenedores para avatares 3D, salas y matchmaking.<br>
-          • <strong class="c-white">Rankings y Perfiles:</strong> Verdad única global sin desajustes por huso horario.
+          • <strong class="c-white">Combate 1v1:</strong> Conexión directa P2P (Rollback Netcode a 60 FPS).<br>
+          • <strong class="c-white">Salón y Lobbies:</strong> Estado 3D, avatares y modo espectador en GKE.<br>
+          • <strong class="c-white">Rankings y Compras:</strong> Sincronización global sin discrepancias.
         </p>
       </div>
     </div>
@@ -296,7 +298,7 @@ const SLIDES = [
           En los años 50, el <strong>contenedor estándar</strong> cambió el mundo: una caja con medidas universales que encaja en cualquier barco, tren o camión del planeta, sin importar qué lleve dentro.
         </p>
         <p class="card-body">
-          En software hacemos lo mismo: <strong>Capcom</strong> empaqueta cada servicio del entorno online (Battle Hub 3D, Custom Rooms, chat, matchmaking) en su propio <strong>Contenedor</strong>. <em>(El combate 1v1 jamás va en contenedor para no añadir latencia)</em>.
+          En software hacemos lo mismo: <strong>Capcom</strong> empaqueta cada pieza del juego (salones 3D, chat, login, matchmaking y retransmisión de combates) en su propio <strong>Contenedor (Docker)</strong> con todo su código y dependencias.
         </p>
       </div>
       <div class="mini-note">💡 <strong>Ventaja clave:</strong> Elimina el <em>"en mi máquina funciona"</em>. El contenedor se ejecuta exactamente igual en local y en la nube.</div>
@@ -309,16 +311,16 @@ const SLIDES = [
 
 /* ── 13 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-diagram">
-  <span class="slide-tag c-cyan">TECNOLOGÍA · KUBERNETES</span>
-  <h1 class="slide-title c-cyan">EL TIMONEL Y SU CLÚSTER</h1>
-  <p class="slide-subtitle">KUBERNETES ORQUESTA LA FLOTA DE CONTENEDORES (PODS) EN SERVIDORES (NODOS)</p>
+  <span class="slide-tag c-cyan">TECNOLOGÍA</span>
+  <h1 class="slide-title c-cyan">KUBERNETES</h1>
+  <p class="slide-subtitle">EL TIMONEL DEL PUERTO · ¿QUÉ ES UN CLÚSTER?</p>
   <div class="k8s-cluster-pro">
     <div class="k8s-cp-banner">
-      <span class="k8s-cp-tag">☸️ CONTROL PLANE (El Timonel / Cerebro)</span>
+      <span class="k8s-cp-tag">🧠 CONTROL PLANE (El Cerebro)</span>
       <div class="k8s-cp-badges">
-        <span class="k8s-badge">Despliegue</span>
-        <span class="k8s-badge">Auto-recuperación</span>
-        <span class="k8s-badge">Auto-escalado</span>
+        <span class="k8s-badge">API Server</span>
+        <span class="k8s-badge">Scheduler</span>
+        <span class="k8s-badge">Controller</span>
       </div>
     </div>
     <div class="k8s-nodes-row">
@@ -326,41 +328,41 @@ const SLIDES = [
         <div class="k8s-node-header">🖥 NODE 1 (Servidor)</div>
         <div class="k8s-pods-grid">
           <div class="k8s-pod-box"><span>📦 Pod</span><span>Battle Hub</span></div>
-          <div class="k8s-pod-box"><span>📦 Pod</span><span>Custom Room</span></div>
+          <div class="k8s-pod-box"><span>📦 Pod</span><span>Match</span></div>
         </div>
       </div>
       <div class="k8s-node-card">
         <div class="k8s-node-header">🖥 NODE 2 (Servidor)</div>
         <div class="k8s-pods-grid">
-          <div class="k8s-pod-box"><span>📦 Pod</span><span>Chat / Notify</span></div>
-          <div class="k8s-pod-box"><span>📦 Pod</span><span>Ranking API</span></div>
+          <div class="k8s-pod-box"><span>📦 Pod</span><span>Chat</span></div>
+          <div class="k8s-pod-box"><span>📦 Pod</span><span>Rank</span></div>
         </div>
       </div>
       <div class="k8s-node-card">
         <div class="k8s-node-header">🖥 NODE 3 (Servidor)</div>
         <div class="k8s-pods-grid">
           <div class="k8s-pod-box"><span>📦 Pod</span><span>Auth</span></div>
-          <div class="k8s-pod-box"><span>📦 Pod</span><span>Matchmaking</span></div>
+          <div class="k8s-pod-box"><span>📦 Pod</span><span>Match</span></div>
         </div>
       </div>
     </div>
   </div>
-  <div class="mini-note">💡 Un <strong>Pod</strong> es la unidad mínima en Kubernetes: aloja el contenedor de un servicio (salón, matchmaking, API), nunca la simulación de la pelea 1v1.</div>
+  <div class="mini-note">💡 Un <strong>Pod</strong> es la unidad mínima de ejecución: aloja uno o más contenedores que comparten red y almacenamiento.</div>
 </div>`,
 
 /* ── 14 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-tech">
   <span class="slide-tag c-cyan">TECNOLOGÍA</span>
   <h1 class="slide-title c-cyan">GKE · GOOGLE KUBERNETES ENGINE</h1>
-  <p class="slide-subtitle">KUBERNETES GESTIONADO SIGUIENDO EL CICLO DEL SOL</p>
+  <p class="slide-subtitle">KUBERNETES COMO SERVICIO GESTIONADO</p>
   <div class="two-col w-full">
     <div class="tech-intro-card">
-      <span class="card-label">¿QUÉ HACE GKE POR CAPCOM?</span>
+      <span class="card-label">¿QUÉ HACE GKE POR TI?</span>
       <p class="card-body">
-        Google gestiona las máquinas, parches y red en <strong>4 regiones mundiales</strong> (Asia, Europa, Norteamérica y Sudamérica).
+        Google se encarga de la infraestructura: actualizaciones, seguridad, parches y escalabilidad del clúster.
       </p>
       <p class="card-body">
-        El tráfico de jugadores <strong>rota por husos horarios</strong> a lo largo del día y GKE escala cada región automáticamente.
+        El desarrollador solo se enfoca en desplegar el código del juego.
       </p>
     </div>
     <div class="gke-scale-visual">
@@ -368,18 +370,18 @@ const SLIDES = [
       <div class="scale-step-row">
         <div class="scale-node-box">
           <div style="font-size:28px">👥 10K</div>
-          <div class="mono c-dim" style="font-size:21px">Valle horario</div>
-          <div class="c-green" style="font-size:21px;margin-top:4px">Pocos Nodos</div>
+          <div class="mono c-dim" style="font-size:21px">Tráfico normal</div>
+          <div class="c-green" style="font-size:21px;margin-top:4px">2 Nodos</div>
         </div>
         <div class="c-cyan pixel" style="font-size:21px">━━▶</div>
         <div class="scale-node-box active-scale">
           <div style="font-size:28px">🔥 100K</div>
-          <div class="mono c-yellow" style="font-size:21px">Hora punta / Torneo</div>
-          <div class="c-cyan" style="font-size:21px;margin-top:4px">Escalado auto</div>
+          <div class="mono c-yellow" style="font-size:21px">Pico de torneo</div>
+          <div class="c-cyan" style="font-size:21px;margin-top:4px">15 Nodos auto</div>
         </div>
       </div>
       <div class="mono" style="font-size:21px;color:var(--dim);text-align:center">
-        ⚡ GKE crea y apaga servidores en minutos según despierta cada continente.
+        ⚡ GKE crea nuevos servidores en segundos sin intervención manual.
       </div>
     </div>
   </div>
@@ -388,24 +390,24 @@ const SLIDES = [
 /* ── 15 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-tech">
   <span class="slide-tag c-cyan">TECNOLOGÍA</span>
-  <h1 class="slide-title c-cyan">¿DÓNDE GUARDO EL RANKING MUNDIAL?</h1>
-  <p class="slide-subtitle">CLOUD SPANNER · VERDAD ÚNICA SIN PROPAGACIÓN DIFERIDA</p>
+  <h1 class="slide-title c-cyan">¿DÓNDE GUARDO MIS DATOS GLOBALES?</h1>
+  <p class="slide-subtitle">CLOUD SPANNER</p>
   <div class="two-col w-full">
     <div class="tech-intro-card">
-      <span class="card-label">CONSISTENCIA GLOBAL ESTRICTA (ACID)</span>
+      <span class="card-label">BASE DE DATOS PLANETARIA</span>
       <p class="card-body">
-        En lugar de dividir el ranking en árboles regionales que se propagan con retraso por husos horarios, Capcom centraliza la verdad en <strong>Cloud Spanner</strong>.
+        Garantiza <strong>consistencia global estricta (ACID)</strong> a escala masiva.
       </p>
       <p class="card-body">
-        Las 4 regiones de GKE se conectan por la <strong>red privada global de Google</strong>: cualquier combate actualiza el ranking mundial al instante.
+        Si dos jugadores terminan una partida al mismo tiempo en continentes distintos, ambos ven el ranking mundial actualizado sin desajustes.
       </p>
     </div>
     <div class="spanner-globe-box">
-      <span class="card-label c-cyan">SINCRONIZACIÓN GLOBAL CON TRUETIME</span>
+      <span class="card-label c-cyan">SINCRONIZACIÓN MULTI-REGIÓN</span>
       <div class="global-nodes-flow">
         <div class="global-region-node">
           <span class="region-flag">🇪🇸</span>
-          <span class="region-name">EUROPA</span>
+          <span class="region-name">MADRID</span>
           <span class="region-status">Rank Sync ✓</span>
         </div>
         <div class="sync-beam">
@@ -414,12 +416,12 @@ const SLIDES = [
         </div>
         <div class="global-region-node">
           <span class="region-flag">🇯🇵</span>
-          <span class="region-name">ASIA / EE.UU.</span>
+          <span class="region-name">TOKIO</span>
           <span class="region-status">Rank Sync ✓</span>
         </div>
       </div>
       <div class="mono" style="font-size:21px;color:var(--dim);text-align:center">
-        🌍 Relojes atómicos y GPS (TrueTime) garantizan orden exacto en puntos (LP / Master Rating) y compras.
+        🌍 Los relojes atómicos y GPS de Google (TrueTime) garantizan orden y consistencia absoluta.
       </div>
     </div>
   </div>
@@ -433,11 +435,11 @@ const SLIDES = [
   <div class="speed-compare-grid">
     <div class="speed-card bad">
       <div class="speed-header">
-        <span class="speed-badge c-red" style="background:rgba(255,51,85,0.15)">DISCO / BD PERSISTENTE</span>
+        <span class="speed-badge c-red" style="background:rgba(255,51,85,0.15)">DISCO / BD TRADICIONAL</span>
         <span style="font-size:28px">🐢</span>
       </div>
-      <div class="speed-val c-red">~ 30-50 ms</div>
-      <p style="font-size:21px;color:var(--dim)">Ideal para datos permanentes (Spanner), pero costoso para estados efímeros que cambian cada segundo.</p>
+      <div class="speed-val c-red">~ 50 ms</div>
+      <p style="font-size:21px;color:var(--dim)">Demasiado lento para el estado en vivo de salas de combate o matchmaking activo.</p>
     </div>
     <div class="speed-card good">
       <div class="speed-header">
@@ -445,16 +447,55 @@ const SLIDES = [
         <span style="font-size:28px">⚡</span>
       </div>
       <div class="speed-val c-green">&lt; 1 ms</div>
-      <p style="font-size:21px;color:var(--dim)">Acceso ultra-rápido en memoria RAM. Ideal para asientos del Battle Hub, caché de rankings y sesiones.</p>
+      <p style="font-size:21px;color:var(--dim)">Acceso ultra-rápido en memoria RAM. Ideal para salas activas, sesiones y rankings calientes.</p>
     </div>
   </div>
   <div class="apply-box w-full" style="border-color:var(--red)">
     <span class="apply-label c-red">EN STREET FIGHTER 6</span>
-    El estado efímero del Battle Hub (quién se sienta en una recreativa o mira un combate) va en Redis; los puntos y compras van a Spanner; y la telemetría de balanceo va a BigQuery.
+    Las salas del Battle Hub y las sesiones activas se guardan en Redis para que moverte e interactuar se sienta 100% instantáneo.
   </div>
 </div>`,
 
 /* ── 17 SLIDE ────────────────────────────────────────── */
+`<div class="slide slide-tech">
+  <span class="slide-tag c-cyan">TECNOLOGÍA</span>
+  <h1 class="slide-title c-cyan">¿CÓMO ANALIZO CANTIDADES ENORMES?</h1>
+  <p class="slide-subtitle">BIGQUERY</p>
+  <div class="two-col w-full">
+    <div class="tech-intro-card">
+      <span class="card-label">DATA WAREHOUSE SERVERLESS</span>
+      <p class="card-body">
+        Capaz de ejecutar consultas SQL sobre <strong>Petabytes</strong> de datos en cuestión de segundos.
+      </p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;font-size:21px">
+        <div style="border:1px solid var(--cyan);padding:10px;border-radius:8px">
+          <strong class="c-cyan">SPANNER</strong><br>Operacional (Ahora)
+        </div>
+        <div style="border:1px solid var(--yellow);padding:10px;border-radius:8px">
+          <strong class="c-yellow">BIGQUERY</strong><br>Analítico (Histórico)
+        </div>
+      </div>
+    </div>
+    <div class="bq-funnel">
+      <div class="bq-layer" style="border-color:var(--cyan);background:rgba(0,240,255,0.08)">
+        <span class="mono">🎮 100M Partidas jugadas</span>
+        <span class="c-cyan pixel" style="font-size:21px">STREAM</span>
+      </div>
+      <div class="c-yellow" style="font-size:24px">⬇</div>
+      <div class="bq-layer" style="border-color:var(--yellow);background:rgba(255,215,0,0.08)">
+        <span class="mono">📊 BIGQUERY SQL SCAN</span>
+        <span class="c-yellow pixel" style="font-size:21px">3 SEGUNDOS</span>
+      </div>
+      <div class="c-green" style="font-size:24px">⬇</div>
+      <div style="display:flex;gap:10px;width:100%">
+        <div class="bq-layer" style="border-color:var(--magenta);padding:8px 12px;font-size:21px">Balance héroes</div>
+        <div class="bq-layer" style="border-color:var(--green);padding:8px 12px;font-size:21px">Retención</div>
+      </div>
+    </div>
+  </div>
+</div>`,
+
+/* ── 18 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-lesson">
   <span class="slide-tag c-red">WORLD 2 · LECCIÓN</span>
   <div class="lesson-icon">🏆</div>
@@ -470,7 +511,7 @@ const SLIDES = [
   </div>
 </div>`,
 
-/* ── 18 SLIDE ────────────────────────────────────────── */
+/* ── 19 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-hero">
   <div class="hero-left">
     <span class="world-badge c-blue">WORLD 3</span>
@@ -487,7 +528,7 @@ const SLIDES = [
   </div>
 </div>`,
 
-/* ── 19 SLIDE ────────────────────────────────────────── */
+/* ── 20 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-tech">
   <span class="slide-tag c-cyan">CONCEPTO</span>
   <h1 class="slide-title c-cyan">DEDICATED GAME SERVER (DGS)</h1>
@@ -512,13 +553,13 @@ const SLIDES = [
   </div>
 </div>`,
 
-/* ── 20 SLIDE ────────────────────────────────────────── */
+/* ── 21 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-meme" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;">
   <img src="images/meme_six_invitational.jpg" alt="Meme Six Invitational vs Kubernetes" style="max-height:500px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.6);border:2px solid rgba(255,255,255,0.15);" />
   <p class="meme-footer c-yellow" style="margin:0;font-size:22px;">... Por eso Ubisoft y Google crearon AGONES</p>
 </div>`,
 
-/* ── 21 SLIDE ────────────────────────────────────────── */
+/* ── 22 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-tech">
   <span class="slide-tag c-cyan">TECNOLOGÍA</span>
   <h1 class="slide-title c-cyan">AGONES</h1>
@@ -527,31 +568,31 @@ const SLIDES = [
     <div class="tech-intro-card">
       <span class="card-label">KUBERNETES HABLA EL IDIOMA DEL JUEGO</span>
       <p class="card-body">
-        Proyecto open source (Google Cloud + Ubisoft). Adapta Kubernetes a servidores de partidas con estado en memoria:
+        Proyecto open source (Google Cloud + Ubisoft) hoy en la <strong>CNCF</strong>.
       </p>
       <ul class="feature-list mt-8" style="font-size:21px">
-        <li><strong>Ciclo de vida protegido:</strong> Impide que Kubernetes mate Pods con una partida en curso.</li>
-        <li><strong>Conexión UDP directa (<code>hostPort</code>):</strong> Los jugadores se conectan directo a la <code>IP:Puerto</code> del nodo sin pasar por un balanceador de carga tradicional, ahorrando latencia.</li>
+        <li><strong>Ciclo de vida:</strong> Impide que Kubernetes mate contenedores con partidas en curso.</li>
+        <li><strong>Conexión UDP directa (<code>hostPort</code>):</strong> Conecta a los jugadores directo al contenedor evitando la latencia del balanceador de carga.</li>
       </ul>
     </div>
     <div class="stream-pipeline-box">
       <div class="pipeline-node" style="border-color:var(--green); display:grid; grid-template-columns:170px 1fr; align-items:center; gap:16px;">
         <span class="pixel c-green" style="font-size:20px">READY</span>
-        <span class="mono" style="font-size:19px">Pool pre-calentado esperando jugadores</span>
+        <span class="mono" style="font-size:19px">Pool de servidores en espera</span>
       </div>
       <div class="pipeline-node" style="border-color:var(--magenta); display:grid; grid-template-columns:170px 1fr; align-items:center; gap:16px;">
         <span class="pixel c-magenta" style="font-size:20px">ALLOCATED</span>
-        <span class="mono" style="font-size:19px">Partida blindada + IP:Puerto UDP directo</span>
+        <span class="mono" style="font-size:19px">Reserva atómica + IP:Puerto directo</span>
       </div>
       <div class="pipeline-node" style="border-color:var(--yellow); display:grid; grid-template-columns:170px 1fr; align-items:center; gap:16px;">
         <span class="pixel c-yellow" style="font-size:20px">SHUTDOWN</span>
-        <span class="mono" style="font-size:19px">Destrucción limpia al terminar la ronda</span>
+        <span class="mono" style="font-size:19px">Destrucción limpia al terminar</span>
       </div>
     </div>
   </div>
 </div>`,
 
-/* ── 22 SLIDE ────────────────────────────────────────── */
+/* ── 23 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-diagram">
   <span class="slide-tag c-blue">AGONES</span>
   <h1 class="slide-title c-blue">LA FLOTA DE SERVIDORES (FLEET)</h1>
@@ -571,22 +612,22 @@ const SLIDES = [
       </div>
       <div class="server-node-card allocated">
         <div style="display:flex;justify-content:space-between"><span>GS-04</span><span>⚔️ ALLOCATED</span></div>
-        <div class="mono" style="font-size:21px">Partida 5v5 (UDP directo)</div>
+        <div class="mono" style="font-size:21px">Partida 5v5 en curso</div>
       </div>
       <div class="server-node-card allocated">
         <div style="display:flex;justify-content:space-between"><span>GS-05</span><span>⚔️ ALLOCATED</span></div>
-        <div class="mono" style="font-size:21px">Partida 5v5 (UDP directo)</div>
+        <div class="mono" style="font-size:21px">Partida 5v5 en curso</div>
       </div>
       <div class="server-node-card allocated">
         <div style="display:flex;justify-content:space-between"><span>GS-06</span><span>⚔️ ALLOCATED</span></div>
-        <div class="mono" style="font-size:21px">Partida 5v5 (UDP directo)</div>
+        <div class="mono" style="font-size:21px">Partida 5v5 en curso</div>
       </div>
     </div>
   </div>
-  <div class="mini-note">🔒 <strong>Seguridad y Ciclo de Vida:</strong> Agones aísla cada contenedor con <code>hostPort</code> (no <code>hostNetwork</code>), protege la IP con proxies UDP (Quilkin / DDoS) y empaqueta partidas activas para apagar nodos vacíos sin cortar a nadie.</div>
+  <div class="mini-note">Agones asegura que ningún servidor ocupado se apague durante autoescalados y aísla su red con <code>hostPort</code>.</div>
 </div>`,
 
-/* ── 23 SLIDE ────────────────────────────────────────── */
+/* ── 24 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-lesson">
   <span class="slide-tag c-blue">WORLD 3 · LECCIÓN</span>
   <div class="lesson-icon">🎯</div>
@@ -601,7 +642,7 @@ const SLIDES = [
   </div>
 </div>`,
 
-/* ── 24 SLIDE ────────────────────────────────────────── */
+/* ── 25 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-hero">
   <div class="hero-left">
     <span class="world-badge c-yellow">WORLD 4</span>
@@ -618,7 +659,7 @@ const SLIDES = [
   </div>
 </div>`,
 
-/* ── 25 SLIDE ────────────────────────────────────────── */
+/* ── 26 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-content">
   <span class="slide-tag c-yellow">WORLD 4 · POKÉMON GO</span>
   <h1 class="slide-title c-yellow">EL PICO DE TRÁFICO VIRAL</h1>
@@ -646,33 +687,33 @@ const SLIDES = [
   </div>
 </div>`,
 
-/* ── 26 SLIDE ────────────────────────────────────────── */
+/* ── 27 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-tech">
-  <span class="slide-tag c-yellow">WORLD 4 · INFRAESTRUCTURA EN TIEMPO REAL</span>
+  <span class="slide-tag c-yellow">WORLD 4 · INFRAESTRUCTURA</span>
   <h1 class="slide-title c-yellow">¿CÓMO ABSORBIÓ LA NUBE EL IMPACTO?</h1>
-  <p class="slide-subtitle">GKE (CELDAS GEOLOCALIZADAS S2) + CLOUD DATASTORE + SRE</p>
+  <p class="slide-subtitle">GKE + CLOUD DATASTORE + COLABORACIÓN SRE</p>
   <div class="two-col w-full">
     <div class="tech-intro-card" style="border-color:var(--cyan)">
-      <span class="card-label c-cyan">☸️ CÓMPUTO Y MAPA VIVO: GKE + CELDAS S2</span>
+      <span class="card-label c-cyan">☸️ CÓMPUTO: GKE (KUBERNETES)</span>
       <p class="card-body" style="font-size:21px;line-height:1.6">
         <strong>El mayor clúster de GKE del mundo:</strong><br>
-        Su <em>Spatial Query Backend</em> divide el planeta en <strong>celdas espaciales S2</strong> en memoria para responder al instante qué Pokémon, Poképaradas y Gimnasios rodean tu GPS.
+        Desplegó y escaló automáticamente miles de nodos para procesar la lógica de juego, la geolocalización (en celdas espaciales S2) y los avatares en tiempo real.
       </p>
     </div>
     <div class="tech-intro-card" style="border-color:var(--green)">
       <span class="card-label c-green">📁 ALMACENAMIENTO: CLOUD DATASTORE</span>
       <p class="card-body" style="font-size:21px;line-height:1.6">
         <strong>Base de datos NoSQL Serverless:</strong><br>
-        Escaló automáticamente para absorber el pico 50X de mochilas, capturas e inventarios individuales por entrenador.
+        Escaló de forma automática para absorber millones de transacciones/segundo de mochilas, capturas e inventarios individuales.
       </p>
     </div>
   </div>
   <div class="mini-note mt-8" style="background:rgba(255,215,0,0.08);border-color:var(--yellow);width:100%;text-align:center;">
-    🤝 Ingenieros de Niantic y Google SRE trabajaron codo con codo inyectando capacidad conforme despertaba cada huso horario.
+    🤝 Ingenieros de Niantic y Google SRE trabajaron codo con codo para inyectar capacidad en tiempo real en la red global de Google.
   </div>
 </div>`,
 
-/* ── 27 SLIDE ────────────────────────────────────────── */
+/* ── 28 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-tech">
   <span class="slide-tag c-cyan">TECNOLOGÍA</span>
   <h1 class="slide-title c-cyan">¿CÓMO TRANSPORTO MILLONES DE EVENTOS?</h1>
@@ -681,15 +722,15 @@ const SLIDES = [
     <div class="tech-intro-card">
       <span class="card-label">MENSAJERÍA ASÍNCRONA DESACOPLADA</span>
       <p class="card-body">
-        Los <strong>Productores</strong> publican millones de acciones y estados GPS por segundo sin bloquear el mapa en vivo.
+        Los <strong>Productores</strong> publican millones de acciones y estados GPS por segundo sin saber quién los procesará.
       </p>
       <p class="card-body">
-        Los <strong>Consumidores</strong> leen y procesan esos eventos en paralelo a su propio ritmo.
+        Los <strong>Consumidores</strong> leen los mensajes a su propio ritmo sin colapsar el juego.
       </p>
     </div>
     <div class="stream-pipeline-box">
       <div class="pipeline-node" style="border-color:var(--yellow)">
-        <span class="mono">🎮 50M Entrenadores (GPS + Acciones)</span>
+        <span class="mono">🎮 50M Entrenadores</span>
         <span class="pixel c-yellow" style="font-size:21px">EVENTOS</span>
       </div>
       <div style="text-align:center;color:var(--cyan);font-size:22px">⬇ Millones de mensajes/seg</div>
@@ -698,48 +739,48 @@ const SLIDES = [
       </div>
       <div style="text-align:center;color:var(--green);font-size:22px">⬇ Fan-out en paralelo</div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
-        <div class="pipeline-node" style="border-color:var(--green);font-size:21px;padding:8px">Spawns</div>
+        <div class="pipeline-node" style="border-color:var(--green);font-size:21px;padding:8px">Spawn</div>
         <div class="pipeline-node" style="border-color:var(--magenta);font-size:21px;padding:8px">Analytics</div>
-        <div class="pipeline-node" style="border-color:var(--orange);font-size:21px;padding:8px">Anti-Cheat GPS</div>
-      </div>
-    </div>
-  </div>
-</div>`,
-
-/* ── 28 SLIDE ────────────────────────────────────────── */
-`<div class="slide slide-tech">
-  <span class="slide-tag c-cyan">TECNOLOGÍA · GEOLOCALIZACIÓN EN STREAMING</span>
-  <h1 class="slide-title c-cyan">¿CÓMO LIMPIO Y ANALIZO EL STREAM GPS?</h1>
-  <p class="slide-subtitle">CLOUD DATAFLOW (APACHE BEAM)</p>
-  <div class="two-col w-full">
-    <div class="tech-intro-card">
-      <span class="card-label">LIMPIEZA GEOESPACIAL Y ANTI-CHEAT</span>
-      <p class="card-body">
-        Ejecuta pipelines de <strong>Apache Beam</strong> en ventanas de tiempo sobre millones de estados de posición que llegan por Pub/Sub.
-      </p>
-      <p class="card-body">
-        <strong>Limpieza y Anti-Spoofing:</strong> Detecta en tiempo real señales GPS imposibles (ej. capturar en Madrid y 5 segundos después en Tokio) y vuelca entre 5 y 10 TB/día de actividad limpia a Bigtable y BigQuery.
-      </p>
-    </div>
-    <div class="stream-pipeline-box">
-      <div class="pipeline-node" style="border-color:var(--cyan)">
-        <span>📍 Señales GPS y Eventos (Pub/Sub)</span>
-        <span class="mono c-cyan">RAW STREAM</span>
-      </div>
-      <div style="text-align:center;color:var(--magenta);font-size:22px">⬇ Ventanas temporales</div>
-      <div class="pipeline-node" style="border-color:var(--magenta);background:rgba(255,45,141,0.08)">
-        <span class="pixel c-magenta" style="font-size:21px">APACHE BEAM (DATAFLOW)</span>
-        <span class="mono" style="font-size:21px">Limpiar GPS · Cazar Spoofing</span>
-      </div>
-      <div style="text-align:center;color:var(--yellow);font-size:22px">⬇ Datos verificados</div>
-      <div class="pipeline-node" style="border-color:var(--yellow)">
-        <span class="pixel c-yellow" style="font-size:21px">ANTI-CHEAT / BIGQUERY</span>
+        <div class="pipeline-node" style="border-color:var(--orange);font-size:21px;padding:8px">Anti-bot</div>
       </div>
     </div>
   </div>
 </div>`,
 
 /* ── 29 SLIDE ────────────────────────────────────────── */
+`<div class="slide slide-tech">
+  <span class="slide-tag c-cyan">TECNOLOGÍA</span>
+  <h1 class="slide-title c-cyan">¿CÓMO PROCESO EL STREAM DE DATOS?</h1>
+  <p class="slide-subtitle">DATAFLOW (APACHE BEAM)</p>
+  <div class="two-col w-full">
+    <div class="tech-intro-card">
+      <span class="card-label">PROCESAMIENTO Y LIMPIEZA GPS EN TIEMPO REAL</span>
+      <p class="card-body">
+        Ejecuta procesos de <strong>Apache Beam</strong> en pequeñas ventanas de tiempo para limpiar estados de posición GPS y detectar trampas al vuelo.
+      </p>
+      <p class="card-body">
+        Auto-escala dinámicamente los workers según el volumen de mensajes que llegan desde Pub/Sub.
+      </p>
+    </div>
+    <div class="stream-pipeline-box">
+      <div class="pipeline-node" style="border-color:var(--cyan)">
+        <span>📨 Eventos y Posición GPS (Pub/Sub)</span>
+        <span class="mono c-cyan">RAW STREAM</span>
+      </div>
+      <div style="text-align:center;color:var(--magenta);font-size:22px">⬇ Ingesta continua</div>
+      <div class="pipeline-node" style="border-color:var(--magenta);background:rgba(255,45,141,0.08)">
+        <span class="pixel c-magenta" style="font-size:21px">DATAFLOW (APACHE BEAM)</span>
+        <span class="mono" style="font-size:21px">Limpiar GPS · Filtrar Fraude</span>
+      </div>
+      <div style="text-align:center;color:var(--yellow);font-size:22px">⬇ Datos listos</div>
+      <div class="pipeline-node" style="border-color:var(--yellow)">
+        <span class="pixel c-yellow" style="font-size:21px">BIGQUERY / SPANNER</span>
+      </div>
+    </div>
+  </div>
+</div>`,
+
+/* ── 30 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-tech">
   <span class="slide-tag c-yellow">TECNOLOGÍA · EVOLUCIÓN</span>
   <h1 class="slide-title c-yellow">DATASTORE (NoSQL) vs SPANNER (RELACIONAL)</h1>
@@ -749,29 +790,61 @@ const SLIDES = [
       <span class="card-label c-green">1. LANZAMIENTO: CLOUD DATASTORE (NoSQL)</span>
       <p class="card-body">
         📁 <strong>El archivador de carpetas independientes:</strong><br>
-        Esquema documental por entrenador y escalado horizontal instantáneo.
+        Esquema flexible y escalado horizontal masivo instantáneo.
       </p>
       <p class="card-body" style="font-size:21px;color:var(--dim)">
-        ✓ Perfecto para el pico 50X: guardar millones de Pokédex y capturas individuales sin bloqueos.
+        ✓ Perfecto para el pico 50X: guardar millones de mochilas, Pokéballs y capturas individuales sin bloqueos.
       </p>
     </div>
     <div class="tech-intro-card" style="border-color:var(--yellow)">
       <span class="card-label c-yellow">2. EVOLUCIÓN: CLOUD SPANNER (RELACIONAL)</span>
       <p class="card-body">
-        🏛️ <strong>Transacciones ACID entre jugadores:</strong><br>
-        Tablas relacionales con consistencia global estricta.
+        🏛️ <strong>La gran biblioteca conectada con consistencia total:</strong><br>
+        Tablas interconectadas y transacciones ACID globales.
       </p>
       <p class="card-body" style="font-size:21px;color:var(--dim)">
-        ✓ Imprescindible al añadir <strong>Intercambios de Pokémon, PvP y Amigos</strong> sin duplicar ni perder criaturas.
+        ✓ Necesario al añadir <strong>Intercambios entre jugadores, Combates PvP y Amigos</strong> sin duplicar objetos.
       </p>
     </div>
   </div>
   <div class="mini-note mt-8" style="background:rgba(255,215,0,0.08);border-color:var(--yellow);width:100%;text-align:center;">
-    🚀 Niantic migró en caliente miles de millones de registros de Datastore a Cloud Spanner sin apagar el juego.
+    🚀 Niantic migró en vivo miles de millones de registros de Datastore a Cloud Spanner sin interrumpir el juego.
   </div>
 </div>`,
 
-/* ── 30 SLIDE ────────────────────────────────────────── */
+/* ── 31 SLIDE ────────────────────────────────────────── */
+`<div class="slide slide-diagram">
+  <span class="slide-tag c-yellow">WORLD 4 · POKÉMON GO</span>
+  <h1 class="slide-title c-yellow">ARQUITECTURA DE ESCALA PLANETARIA</h1>
+  <div class="sf6-arch-visual">
+    <div class="client-row" style="display:flex;gap:12px;justify-content:center;">
+      <span class="client-pill" style="border-color:var(--yellow);background:rgba(255,215,0,0.1)">📱 Millones de Jugadores GPS</span>
+      <span class="client-pill" style="border-color:var(--cyan);background:rgba(0,240,255,0.1)">🌐 Cloud CDN & Load Balancer</span>
+    </div>
+    <div style="text-align:center;font-size:22px;color:var(--dim)">⬇ Hasta 1M peticiones/segundo (GO Fest) ⬇</div>
+    <div class="backend-core-box">
+      <div class="pixel c-cyan" style="font-size:21px">GKE · Miles de Contenedores de Lógica en Microservicios</div>
+      <div class="mono" style="font-size:21px;color:var(--dim);margin-top:4px">Spawns en celdas espaciales S2 · Gimnasios · Incursiones</div>
+    </div>
+    <div style="text-align:center;font-size:22px;color:var(--dim)">⬇ Persistencia & Streaming Masivo ⬇</div>
+    <div class="storage-grid-row">
+      <div class="storage-card" style="border-color:var(--yellow)">
+        <span class="pixel c-yellow" style="font-size:21px">DATASTORE ➔ SPANNER</span>
+        <span style="font-size:21px;color:var(--dim)">NoSQL 50X ➔ Migración a Spanner (PvP e Intercambios consistentes)</span>
+      </div>
+      <div class="storage-card" style="border-color:var(--cyan)">
+        <span class="pixel c-cyan" style="font-size:21px">PUB/SUB + DATAFLOW</span>
+        <span style="font-size:21px;color:var(--dim)">Streaming continuo y limpieza anti-trampas de GPS con Apache Beam</span>
+      </div>
+      <div class="storage-card" style="border-color:var(--magenta)">
+        <span class="pixel c-magenta" style="font-size:21px">BIGQUERY</span>
+        <span style="font-size:21px;color:var(--dim)">Telemetría masiva, análisis de comportamiento y eventos globales</span>
+      </div>
+    </div>
+  </div>
+</div>`,
+
+/* ── 32 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-lesson">
   <span class="slide-tag c-yellow">WORLD 4 · LECCIÓN</span>
   <div class="lesson-icon">⚡</div>
@@ -780,13 +853,13 @@ const SLIDES = [
     Una arquitectura viva para evolucionar con tu juego.
   </p>
   <div class="pills">
-    <span class="pill c-cyan" style="border-color:var(--cyan)">GKE + Celdas S2: Mapa elástico</span>
-    <span class="pill c-yellow" style="border-color:var(--yellow)">Datastore ➔ Spanner: Evolución en vivo</span>
-    <span class="pill c-magenta" style="border-color:var(--magenta)">Pub/Sub + Beam: Limpieza GPS en streaming</span>
+    <span class="pill c-cyan" style="border-color:var(--cyan)">GKE: Autoescalado elástico</span>
+    <span class="pill c-yellow" style="border-color:var(--yellow)">Datastore ➔ Spanner: Evolución continua</span>
+    <span class="pill c-magenta" style="border-color:var(--magenta)">Pub/Sub + Dataflow: Streaming en tiempo real</span>
   </div>
 </div>`,
 
-/* ── 31 SLIDE ────────────────────────────────────────── */
+/* ── 33 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-diagram">
   <span class="slide-tag c-yellow">RESUMEN GLOBAL</span>
   <h1 class="slide-title c-yellow">EL MAPA DE TECNOLOGÍAS EN LA NUBE</h1>
@@ -817,7 +890,7 @@ const SLIDES = [
     </div>
     <div class="tech-tile" style="border-color:var(--blue)">
       <span class="tech-tile-name c-blue">AGONES</span>
-      <span class="tech-tile-q">¿Cómo protejo la partida y conecto por UDP directo?</span>
+      <span class="tech-tile-q">¿Cómo respeto el ciclo de vida del juego?</span>
     </div>
     <div class="tech-tile" style="border-color:var(--yellow)">
       <span class="tech-tile-name c-yellow">CLOUD DATASTORE</span>
@@ -828,13 +901,13 @@ const SLIDES = [
       <span class="tech-tile-q">¿Cómo transporto millones de mensajes?</span>
     </div>
     <div class="tech-tile" style="border-color:var(--green)">
-      <span class="tech-tile-name c-green">DATAFLOW (BEAM)</span>
-      <span class="tech-tile-q">¿Cómo limpio y proceso el stream GPS en vivo?</span>
+      <span class="tech-tile-name c-green">DATAFLOW</span>
+      <span class="tech-tile-q">¿Cómo proceso datos en tiempo real?</span>
     </div>
   </div>
 </div>`,
 
-/* ── 32 SLIDE ────────────────────────────────────────── */
+/* ── 34 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-diagram">
   <span class="slide-tag c-cyan">CONCLUSIÓN ARQUITECTÓNICA</span>
   <h1 class="slide-title c-cyan">UN VIDEOJUEGO ES UN SISTEMA DISTRIBUIDO</h1>
@@ -856,7 +929,7 @@ const SLIDES = [
   </p>
 </div>`,
 
-/* ── 33 SLIDE ────────────────────────────────────────── */
+/* ── 35 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-refs">
   <span class="slide-tag c-cyan">FUENTES Y ENLACES</span>
   <h1 class="slide-title c-cyan">REFERENCIAS OFICIALES</h1>
@@ -886,14 +959,14 @@ const SLIDES = [
   </div>
 </div>`,
 
-/* ── 34 SLIDE ────────────────────────────────────────── */
+/* ── 36 SLIDE ────────────────────────────────────────── */
 `<div class="slide slide-cover slide-end">
   <span class="corner-deco tl">P1</span>
   <span class="corner-deco tr">HI-SCORE: 999990</span>
   <span class="corner-deco br">GCP × GAMING</span>
   <span class="corner-deco bl">GAME OVER</span>
   
-  <p class="game-over blink-slow" style="font-size:clamp(24px,3.2vw,40px);margin-bottom:18px;">¡GRACIAS! · ¿HABLAMOS?</p>
+  <p class="game-over blink-slow" style="font-size:clamp(24px,3.2vw,40px);margin-bottom:18px;">¡GRACIAS! · ¿PREGUNTAS?</p>
 
   <div class="cover-main-title" style="margin-bottom:10px;">
     <span class="cover-line-insert">INSERT COIN</span>

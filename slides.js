@@ -262,9 +262,9 @@ const SLIDES = [
   <div class="two-col w-full">
     <div>
       <ul class="feature-list">
-        <li><strong>Battle Hub</strong>: sala virtual compartida global donde los avatares interactúan en tiempo real.</li>
-        <li><strong>Cross-play completo</strong>: PC · PlayStation 5 · Xbox Series.</li>
-        <li><strong>Ranking mundial único</strong>: millones de luchadores compitiendo 24/7.</li>
+        <li><strong>Battle Hub</strong>: salón recreativo virtual 3D.</li>
+        <li><strong>Cross-play</strong>: PC · PS5 · Xbox.</li>
+        <li><strong>Ranking mundial único</strong> en tiempo real.</li>
       </ul>
     </div>
     <div class="apply-box" style="border-color:var(--red)">
@@ -276,9 +276,9 @@ const SLIDES = [
           <span>🇯🇵 Jugador (Tokio)</span>
         </div>
         <p style="font-size:21px; color:var(--dim); line-height: 1.6;">
-          • <strong class="c-white">Combate 1v1:</strong> Conexión directa P2P (Rollback Netcode a 60 FPS).<br>
-          • <strong class="c-white">Salón y Lobbies:</strong> Estado 3D, avatares y modo espectador en GKE.<br>
-          • <strong class="c-white">Rankings y Compras:</strong> Sincronización global sin discrepancias.
+          • <strong class="c-white">Pelea 1v1:</strong> Directo consola a consola (P2P).<br>
+          • <strong class="c-white">Battle Hub + Espectador:</strong> En la nube (GKE).<br>
+          • <strong class="c-white">Ranking y Perfil:</strong> Consistencia global.
         </p>
       </div>
     </div>
@@ -293,15 +293,14 @@ const SLIDES = [
   <div class="two-col w-full" style="align-items:center; gap:36px;">
     <div style="display:flex; flex-direction:column; gap:16px;">
       <div class="tech-intro-card">
-        <span class="card-label">📦 LA REVOLUCIÓN DEL TRANSPORTE</span>
-        <p class="card-body">
-          En los años 50, el <strong>contenedor estándar</strong> cambió el mundo: una caja con medidas universales que encaja en cualquier barco, tren o camión del planeta, sin importar qué lleve dentro.
-        </p>
-        <p class="card-body">
-          En software hacemos lo mismo: <strong>Capcom</strong> empaqueta cada pieza del juego (salones 3D, chat, login, matchmaking y retransmisión de combates) en su propio <strong>Contenedor (Docker)</strong> con todo su código y dependencias.
-        </p>
+        <span class="card-label">📦 DEL BARCO AL SOFTWARE</span>
+        <ul class="feature-list mt-8" style="font-size:21px">
+          <li><strong>Años 50 (Logística):</strong> Medida universal para cualquier barco o grúa.</li>
+          <li><strong>Docker (Software):</strong> Código + dependencias aisladas en un paquete.</li>
+          <li><strong>Capcom:</strong> Contenedores separados (<em>Battle Hub, Chat, Login, Match</em>).</li>
+        </ul>
       </div>
-      <div class="mini-note">💡 <strong>Ventaja clave:</strong> Elimina el <em>"en mi máquina funciona"</em>. El contenedor se ejecuta exactamente igual en local y en la nube.</div>
+      <div class="mini-note">💡 Adiós al <em>"en mi máquina funciona"</em>: idéntico en local y en la nube.</div>
     </div>
     <div style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
       <img src="images/containers.jpg" alt="Contenedores marítimos vs contenedores de software" style="width:100%; max-width:540px; border-radius:14px; border:2px solid var(--cyan); box-shadow:var(--glow-cyan); object-fit:cover;" />
@@ -568,11 +567,11 @@ const SLIDES = [
     <div class="tech-intro-card">
       <span class="card-label">KUBERNETES HABLA EL IDIOMA DEL JUEGO</span>
       <p class="card-body">
-        Proyecto open source (Google Cloud + Ubisoft) hoy en la <strong>CNCF</strong>.
+        Open source de <strong>Google Cloud + Ubisoft</strong> (CNCF).
       </p>
       <ul class="feature-list mt-8" style="font-size:21px">
-        <li><strong>Ciclo de vida:</strong> Impide que Kubernetes mate contenedores con partidas en curso.</li>
-        <li><strong>Conexión UDP directa (<code>hostPort</code>):</strong> Conecta a los jugadores directo al contenedor evitando la latencia del balanceador de carga.</li>
+        <li><strong>Ciclo de vida:</strong> Blindaje de contenedores con partida activa.</li>
+        <li><strong>UDP directo (<code>hostPort</code>):</strong> Sin pasar por el balanceador de carga.</li>
       </ul>
     </div>
     <div class="stream-pipeline-box">
@@ -666,15 +665,12 @@ const SLIDES = [
   <p class="slide-subtitle">CUANDO EL ÉXITO SUPERA TODAS LAS PREVISIONES</p>
   <div class="two-col w-full">
     <div style="display:flex;flex-direction:column;justify-content:center;gap:16px;">
-      <ul class="feature-list" style="font-size:21px;gap:14px;">
-        <li><strong>Fenómeno cultural mundial:</strong> Más de 500 millones de descargas en sus primeros meses.</li>
-        <li><strong>Línea naranja (1X):</strong> Tráfico objetivo estimado para un lanzamiento exitoso.</li>
-        <li><strong>Línea roja (5X):</strong> El 'peor escenario posible' calculado por ingeniería.</li>
-        <li><strong>Línea verde vertical (50X):</strong> El tráfico real... <strong>50 veces</strong> la previsión inicial y <strong>10 veces</strong> el peor caso.</li>
+      <ul class="feature-list" style="font-size:22px;gap:16px;">
+        <li><strong>Fenómeno mundial:</strong> +500M descargas.</li>
+        <li><strong>🟠 Naranja (1X):</strong> Tráfico estimado.</li>
+        <li><strong>🔴 Roja (5X):</strong> Peor escenario previsto.</li>
+        <li><strong>🟢 Verde (50X):</strong> Tráfico real (<strong>10x</strong> el peor caso).</li>
       </ul>
-      <div class="mini-note" style="background:rgba(255,215,0,0.08);border-color:var(--yellow);margin-top:8px;">
-        ⚠️ El mayor reto de infraestructura de la historia móvil: ¿Cómo evitar el colapso total?
-      </div>
     </div>
     <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
       <div style="background:var(--surface);border:2px solid rgba(255,215,0,0.4);border-radius:14px;padding:14px;box-shadow:var(--glow-yellow);text-align:center;width:100%;">
@@ -695,21 +691,21 @@ const SLIDES = [
   <div class="two-col w-full">
     <div class="tech-intro-card" style="border-color:var(--cyan)">
       <span class="card-label c-cyan">☸️ CÓMPUTO: GKE (KUBERNETES)</span>
-      <p class="card-body" style="font-size:21px;line-height:1.6">
-        <strong>El mayor clúster de GKE del mundo:</strong><br>
-        Desplegó y escaló automáticamente miles de nodos para procesar la lógica de juego, la geolocalización (en celdas espaciales S2) y los avatares en tiempo real.
-      </p>
+      <ul class="feature-list mt-8" style="font-size:21px">
+        <li><strong>Mayor clúster GKE del mundo</strong> (miles de nodos).</li>
+        <li>Planeta dividido en <strong>celdas espaciales S2</strong> (Google Maps).</li>
+      </ul>
     </div>
     <div class="tech-intro-card" style="border-color:var(--green)">
-      <span class="card-label c-green">📁 ALMACENAMIENTO: CLOUD DATASTORE</span>
-      <p class="card-body" style="font-size:21px;line-height:1.6">
-        <strong>Base de datos NoSQL Serverless:</strong><br>
-        Escaló de forma automática para absorber millones de transacciones/segundo de mochilas, capturas e inventarios individuales.
-      </p>
+      <span class="card-label c-green">📁 DATOS: CLOUD DATASTORE</span>
+      <ul class="feature-list mt-8" style="font-size:21px">
+        <li><strong>NoSQL documental</strong> (1 documento por jugador).</li>
+        <li>Escalado automático para capturas y Pokédex.</li>
+      </ul>
     </div>
   </div>
   <div class="mini-note mt-8" style="background:rgba(255,215,0,0.08);border-color:var(--yellow);width:100%;text-align:center;">
-    🤝 Ingenieros de Niantic y Google SRE trabajaron codo con codo para inyectar capacidad en tiempo real en la red global de Google.
+    🤝 <strong>Niantic + Google SRE:</strong> escalado del clúster y cambio de balanceador en vivo.
   </div>
 </div>`,
 
@@ -787,28 +783,28 @@ const SLIDES = [
   <p class="slide-subtitle">¿POR QUÉ NIANTIC MIGRÓ DESPUÉS A CLOUD SPANNER?</p>
   <div class="two-col w-full">
     <div class="tech-intro-card" style="border-color:var(--green)">
-      <span class="card-label c-green">1. LANZAMIENTO: CLOUD DATASTORE (NoSQL)</span>
+      <span class="card-label c-green">1. LANZAMIENTO: CLOUD DATASTORE</span>
       <p class="card-body">
-        📁 <strong>El archivador de carpetas independientes:</strong><br>
-        Esquema flexible y escalado horizontal masivo instantáneo.
+        📄 <strong>Documento por jugador</strong>
       </p>
-      <p class="card-body" style="font-size:21px;color:var(--dim)">
-        ✓ Perfecto para el pico 50X: guardar millones de mochilas, Pokéballs y capturas individuales sin bloqueos.
-      </p>
+      <ul class="feature-list mt-8" style="font-size:21px">
+        <li>Escalado instantáneo (salvó el pico <strong>50X</strong>).</li>
+        <li>Ideal para acciones individuales (capturas, mochila).</li>
+      </ul>
     </div>
     <div class="tech-intro-card" style="border-color:var(--yellow)">
-      <span class="card-label c-yellow">2. EVOLUCIÓN: CLOUD SPANNER (RELACIONAL)</span>
+      <span class="card-label c-yellow">2. EVOLUCIÓN: CLOUD SPANNER</span>
       <p class="card-body">
-        🏛️ <strong>La gran biblioteca conectada (~5.000 nodos):</strong><br>
-        Esquemas relacionales con índices secundarios consistentes y transacciones ACID globales.
+        🏛️ <strong>Tablas conectadas (~5.000 nodos)</strong>
       </p>
-      <p class="card-body" style="font-size:21px;color:var(--dim)">
-        ✓ Mayor control de escala y soporte para relaciones entre jugadores (<strong>Amigos, Intercambios, PvP</strong>).
-      </p>
+      <ul class="feature-list mt-8" style="font-size:21px">
+        <li>Esquemas relacionales, <strong>índices consistentes</strong> y <strong>ACID</strong>.</li>
+        <li>Cruza datos entre jugadores (<strong>Amigos, Intercambios, PvP</strong>).</li>
+      </ul>
     </div>
   </div>
   <div class="mini-note mt-8" style="background:rgba(255,215,0,0.08);border-color:var(--yellow);width:100%;text-align:center;">
-    🚀 Niantic migró en vivo de Datastore a ~5.000 nodos de Cloud Spanner (soportando hasta ~1M transacciones/seg en GO Fest).
+    🚀 Migración en caliente sin <em>downtime</em> (hasta <strong>~1M tx/seg</strong> en GO Fest).
   </div>
 </div>`,
 
